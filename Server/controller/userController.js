@@ -3,7 +3,6 @@ const express = require("express");
 const router = express.Router();
 
 router.route("/").get(async function (req, resp) {
-
   let data = await usersBL.GetAllUsers();
 
   return resp.json(data);
