@@ -27,6 +27,18 @@ exports.GetUserByID = function (UserID) {
   });
 };
 
+exports.GetUserByEmail = function (email) {
+  return new Promise((resolve, reject) => {
+    usersModel.findOne({email : email}, function (err, data) {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(data);
+      }
+    });
+  });
+};
+
 exports.UpdateUser = function (UserID, UserNewData) {
   return new Promise((resolve, reject) => {
     usersModel.findByIdAndUpdate(UserID, UserNewData, function (err, data) {

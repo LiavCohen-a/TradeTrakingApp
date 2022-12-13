@@ -48,10 +48,10 @@ router.route("/:id").delete(async function (req, resp) {
 
 router.route("/login").post(async function (req, resp) {
   let userData = req.body;
-  let user = await usersBL.GetUserByID(userData._id);
+  let user = await usersBL.GetUserByEmail(userData.email);
   let isExist = userService.isUserExist(user,userData);
   if(isExist){
-    return resp.json("Hey" + user.firstName +" You've logged in successfully!");
+    return resp.json("Hey " + user.firstName +" You've logged in successfully!");
   }else{
     return resp.json("The username or password is invalid!");
 }});
