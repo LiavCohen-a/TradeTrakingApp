@@ -41,9 +41,6 @@ exports.UpdateUser = function (UserID, UserNewData) {
 
 exports.AddUser = function (newUserData) {
   return new Promise((resolve, reject) => {
-    let resp = userService.isPasswordValid(newUserData.password);
-
-    if (resp.upperCase && resp.passLength) {
       let newUser = new usersModel({
         firstName: newUserData.firstName,
         lastName: newUserData.lastName,
@@ -61,18 +58,6 @@ exports.AddUser = function (newUserData) {
           resolve("New User Was Created");
         }
       });
-    } else {
-      if (resp.passLength) {
-        resolve("User mast have a capital letter in his password !");
-      } else {
-        if (resp.upperCase) {
-          resolve("User mast have a 8 letter password minimum!");
-        }
-        resolve(
-          "User mast have a capital letter in his password and 8 letter minimum !"
-        );
-      }
-    }
   });
 };
 
