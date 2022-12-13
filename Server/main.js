@@ -11,8 +11,10 @@ app.use(bodyParser.urlencoded({ extended: true })).use(bodyParser.json());
 app.use(cors());
 
 const userController = require("./controller/userController");
+const positionController = require("./controller/positionController");
 
 app.use("/api/users", userController);
+app.use("/api/positions", positionController);
 
 app.listen(PORT, () => {
   console.log("Server Runs At Port " + PORT);
