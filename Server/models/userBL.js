@@ -52,6 +52,7 @@ exports.AddUser = function (newUserData) {
         phone: newUserData.phone,
         accountStartingPoint: newUserData.accountStartingPoint,
         accountCurrentMargin: newUserData.accountCurrentMargin,
+        createdAt : Date.now()
       });
       newUser.save((err) => {
         if (err) {
