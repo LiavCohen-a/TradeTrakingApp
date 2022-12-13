@@ -10,6 +10,7 @@ let user = new userSchema({
   phone: String,
   accountStartingPoint: Number,
   accountCurrentMargin: Number,
+  createdAt: Date
 });
 
 module.exports = mongoose.model("users", user);
