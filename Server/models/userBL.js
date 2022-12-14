@@ -49,13 +49,6 @@ exports.UpdateUser = function (UserID, UserNewData) {
 };
 
 exports.AddUser = function (newUserData) {
-  // let arrMail = newUserData.email.split("");
-  // let fixedMail = arrMail.map(x => x.toLowerCase());
-  // console.log(fixedMail)
-  // stringmail = fixedMail.toString(",");
-  // console.log(stringmail)
-  // let mail = stringmail.replace(",","")
-  // console.log(mail)
 
   return new Promise((resolve, reject) => {
       let newUser = new usersModel({
