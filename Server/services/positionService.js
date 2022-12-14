@@ -21,20 +21,20 @@ exports.ProfitLossAverageAndTotal = (positions) => {
 };
 
 
-exports.LiquidityPrice = (laverage , entryPrice , type ) => {
+exports.LiquidityPrice = (leverage , entryPrice , type ) => {
     let liquidityPrice = 0;
     if(type == "Long"){
-        let priceRange = entryPrice / laverage;
+        let priceRange = entryPrice / leverage;
         liquidityPrice = entryPrice - priceRange
         return liquidityPrice;
     }else{
-        let priceRange = entryPrice / laverage;
+        let priceRange = entryPrice / leverage;
         liquidityPrice = entryPrice + priceRange
         return liquidityPrice;
     }
 };
 
-exports.sizeUSD = (margin , laverage) => {
-    return sizeUSD = marign * laverage
+exports.sizeUSD = (margin , leverage) => {
+    return sizeUSD = marign * leverage
 };
 
