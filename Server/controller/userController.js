@@ -18,7 +18,7 @@ router.route("/").post(async function (req, resp) {
   let newUserData = req.body;
 
   let isValid = userService.isPasswordValid(newUserData.password);
-  
+
   if (isValid.upperCase && isValid.passLength) {
     let data = await usersBL.AddUser(newUserData);
     return resp.json(data);
@@ -53,7 +53,7 @@ router.route("/login").post(async function (req, resp) {
   if(isExist){
     return resp.json("Hey " + user.firstName +" You've logged in successfully!");
   }else{
-    return resp.json("The username or password is invalid!");
+    return resp.json("The username or password are invalid!");
 }});
 
 module.exports = router;
