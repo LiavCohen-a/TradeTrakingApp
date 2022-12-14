@@ -38,6 +38,9 @@ router.route('/:id').put(async (req,resp) => {
     let positionID = req.params.id;
     if(updatedPositionData.positionClosed){
         updatedPositionData.positionClosedDate = Date.now();
+    }else{
+        updatedPositionData.liquidityPrice = positionService.LiquidityPrice(updatedPositionData.leverage,updatedPositionData.entryPrice,updatedPositionData.type);
+        updatedPositionData.size = positionService.sizeUSD(updatedPositionData.margin,updatedPositionData.leverage);
     }
     let dataResponse = await positionBL.UpdatePosition(positionID,updatedPositionData)
     return resp.json(dataResponse);
