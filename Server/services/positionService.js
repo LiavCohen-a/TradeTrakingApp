@@ -35,6 +35,22 @@ exports.LiquidityPrice = (leverage , entryPrice , type ) => {
 };
 
 exports.sizeUSD = (margin , leverage) => {
-    return sizeUSD = marign * leverage
+    return sizeUSD = margin * leverage
+};
+
+exports.isValidPosition = (position) => {
+    if(position.type == "Long"){
+        if(position.entryPrice > position.stopLoss ){
+            return true;
+        }else{
+            return false;
+        }
+    }else{
+        if(position.entryPrice < position.stopLoss){
+            return true;
+        }else{
+            return false;
+        }
+    }
 };
 

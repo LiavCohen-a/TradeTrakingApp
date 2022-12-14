@@ -47,12 +47,12 @@ exports.AddPosition = function (newPositionData) {
         leverage : newPositionData.leverage,
         entryPrice : newPositionData.entryPrice,
         stopLoss : newPositionData.stopLoss,
-        closePrice : newPositionData.closePrice,
         liquidityPrice : newPositionData.liquidityPrice,
         size : newPositionData.size,
-        date : newPositionData.date,
-        positionClosed : newPositionData.positionClosed,
-        positionClosedDate : newPositionData.positionClosedDate
+        positionOpenDate : Date.now(),
+        positionClosed : false,
+        closePrice : null,
+        positionClosedDate : null
       });
       newPosition.save((err) => {
         if (err) {

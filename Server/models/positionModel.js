@@ -10,13 +10,13 @@ let position = new positionSchema({
   leverage : Number,
   entryPrice : Number,
   stopLoss : Number,
-  closePrice : Number,
   liquidityPrice : Number,
   size : Number,
-  date : Date,
+  positionOpenDate  : Date,
   positionClosed : Boolean,
+  closePrice : Number,
   positionClosedDate : Date
   
 });
 
-module.exports = mongoose.model("Positions", position);
+module.exports = mongoose.model("positions", position);
