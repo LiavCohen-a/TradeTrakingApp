@@ -18,8 +18,8 @@ router.route('/position/:id').get(async function(req,resp) {
 
 router.route('/').post(async function(req,resp) {
     let newPositionData = req.body;
-    let isVaildPosition = positionService.isValidPosition(newPositionData);
-    if(isVaildPosition){
+    let isValidPosition = positionService.isValidPosition(newPositionData);
+    if(isValidPosition){
         newPositionData.liquidityPrice = positionService.LiquidityPrice(newPositionData.leverage,newPositionData.entryPrice,newPositionData.type);
         newPositionData.size = positionService.sizeUSD(newPositionData.margin,newPositionData.leverage);
         let dataResponse = await positionBL.AddPosition(newPositionData);
