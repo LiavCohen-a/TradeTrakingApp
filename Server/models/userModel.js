@@ -4,7 +4,7 @@ let userSchema = mongoose.Schema;
 let userSecurityQuestionSchema = mongoose.Schema;
 
 let userSecurityQuestionObj = new userSecurityQuestionSchema({
-  userQuestion : String,
+  userQuestionID : String,
   userAnswer : String
 });
 

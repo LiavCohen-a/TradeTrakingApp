@@ -1,5 +1,6 @@
 exports.isPasswordValid = (password) => {
   let passArr = password.split("");
+
   let upperCase = false;
   let passLength = false;
 
@@ -8,10 +9,11 @@ exports.isPasswordValid = (password) => {
   }
   passArr.forEach((letter) => {
     if (letter.toUpperCase() === letter) {
-      if (letter < 0 || letter > 0) {
+      if (letter <= 0 || letter > 0) {
       } else {
         upperCase = true;
       }
+    } else {
     }
   });
 
@@ -19,20 +21,18 @@ exports.isPasswordValid = (password) => {
 };
 
 exports.isUserExist = (user, userData) => {
-   
   if (user === null) {
     return false;
   } else {
     if (user.password === userData.password && user.email === userData.email) {
-        
       return true;
     } else {
       return false;
     }
   }
 };
-exports.emailUserFix = (newUserData) => {
-  let arrMail = newUserData.email.split("");
+exports.emailUserFix = (UserData) => {
+  let arrMail = UserData.email.split("");
   let fixedMail = arrMail.map((x) => x.toLowerCase());
   return fixedMail.join("");
 };
