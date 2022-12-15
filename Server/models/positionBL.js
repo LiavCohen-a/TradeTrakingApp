@@ -2,7 +2,7 @@ const positionModel = require("./positionModel");
 
 exports.GetAllUserPosition = function (userID) {
   return new Promise((resolve, reject) => {
-    positionModel.find({userID : userID}, function (err, data) {
+    positionModel.find({ userID : userID }, function (err, data) {
       if (err) {
         reject(err);
       } else {
@@ -24,43 +24,46 @@ exports.GetPositionByID = function (positionID) {
   });
 };
 
-
 exports.UpdatePosition = function (positionID, positionNewData) {
   return new Promise((resolve, reject) => {
-    positionModel.findByIdAndUpdate(positionID, positionNewData, function (err, data) {
-      if (err) {
-        reject(err);
-      } else {
-        resolve("Position Was Updated");
+    positionModel.findByIdAndUpdate(
+      positionID,
+      positionNewData,
+      function (err, data) {
+        if (err) {
+          reject(err);
+        } else {
+          resolve("Position Was Updated");
+        }
       }
-    });
+    );
   });
 };
 
 exports.AddPosition = function (newPositionData) {
   return new Promise((resolve, reject) => {
-      let newPosition = new positionModel({
-        userID : newPositionData.userID,
-        symbol : newPositionData.symbol,
-        margin : newPositionData.margin,
-        type : newPositionData.type,
-        leverage : newPositionData.leverage,
-        entryPrice : newPositionData.entryPrice,
-        stopLoss : newPositionData.stopLoss,
-        liquidityPrice : newPositionData.liquidityPrice,
-        size : newPositionData.size,
-        positionOpenDate : Date.now(),
-        positionClosed : false,
-        closePrice : null,
-        positionClosedDate : null
-      });
-      newPosition.save((err) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve("New Position Was Created");
-        }
-      });
+    let newPosition = new positionModel({
+      userID: newPositionData.userID,
+      symbol: newPositionData.symbol,
+      margin: newPositionData.margin,
+      type: newPositionData.type,
+      leverage: newPositionData.leverage,
+      entryPrice: newPositionData.entryPrice,
+      stopLoss: newPositionData.stopLoss,
+      liquidityPrice: newPositionData.liquidityPrice,
+      size: newPositionData.size,
+      positionOpenDate: Date.now(),
+      positionClosed: false,
+      closePrice: null,
+      positionClosedDate: null,
+    });
+    newPosition.save((err) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve("New Position Was Created");
+      }
+    });
   });
 };
 
