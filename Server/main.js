@@ -12,9 +12,11 @@ app.use(cors());
 
 const userController = require("./controller/userController");
 const positionController = require("./controller/positionController");
+const securityQuestionController = require("./controller/securityQuestionController");
 
 app.use("/api/users", userController);
 app.use("/api/positions", positionController);
+app.use("/api/securityquestions", securityQuestionController);
 
 app.listen(PORT, () => {
   console.log("Server Runs At Port " + PORT);

@@ -40,8 +40,20 @@ router.route("/:id").put(async function (req, resp) {
   let newUserData = req.body;
   let userEmail = userService.emailUserFix(newUserData);
   newUserData.email = userEmail;
-  let data = await usersBL.UpdateUser(userID, newUserData);
-  return resp.json(data);
+  if (isValid.upperCase && isValid.passLength) {
+    let data = await usersBL.UpdateUser(userID, newUserData);
+    return resp.json(data);  
+  } else {
+    if (isValid.passLength) {
+      return resp.json("User mast have a capital letter in his password !");
+    } else {
+      if (isValid.upperCase) {
+        return resp.json("User mast have a 8 letter password minimum!");
+      }
+      return resp.json("User mast have a capital letter in his password and 8 letter minimum !");
+    }
+  }
+
 });
 router.route("/:id").delete(async function (req, resp) {
   let userID = req.params.id;
