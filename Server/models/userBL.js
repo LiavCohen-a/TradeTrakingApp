@@ -62,7 +62,28 @@ exports.UpdateUserPassword = function (UserID, newPassword) {
     );
   });
 };
-
+exports.UpdateUserStartPointMargin = function (
+  UserID,
+  newAccountStartingPoint,
+  newAccountCurrentMargin
+) {
+  return new Promise((resolve, reject) => {
+    usersModel.findByIdAndUpdate(
+      UserID,
+      {
+        accountStartingPoint: newAccountStartingPoint,
+        accountCurrentMargin: newAccountCurrentMargin,
+      },
+      function (err, data) {
+        if (err) {
+          reject(err);
+        } else {
+          resolve("User Transaction Was Successfully Updated");
+        }
+      }
+    );
+  });
+};
 exports.AddUser = function (newUserData) {
   return new Promise((resolve, reject) => {
     let newUser = new usersModel({
