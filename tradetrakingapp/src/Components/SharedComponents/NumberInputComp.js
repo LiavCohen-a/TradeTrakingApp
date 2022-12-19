@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 // Css
 import "../../Css/Inputs.css";
 
-function TextInputComp(props) {
-  const [fieldValue, setFieldValue] = useState("");
+function NumberInputComp(props) {
+  const [fieldValue, setFieldValue] = useState();
   useEffect(() => {
     setFieldValue(props.fieldValue);
   }, []);
@@ -13,9 +13,9 @@ function TextInputComp(props) {
     <div className="InputContainer">
       <input
         className="Input"
-        type={"text"}
+        type={'number'}
         placeholder={props.fieldName}
-        value={fieldValue ? fieldValue : ""}
+        value={fieldValue}
         onChange={(e) => {
           setFieldValue(e.target.value);
           props.inputValue(e.target.value);
@@ -25,4 +25,4 @@ function TextInputComp(props) {
   );
 }
 
-export default TextInputComp;
+export default NumberInputComp;

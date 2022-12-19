@@ -2,7 +2,7 @@
 import ForgotPasswordComp from "../../../components/LoginRegisterComps/ForgotPasswordComp";
 import SubmitInputComp from "../../../components/SharedComponents/SubmitInputComp";
 import TextInputComp from "../../../components/SharedComponents/TextInputComp";
-import SignUpComp from "../../../components/LoginRegisterComps/SignUpComp";
+import RegisterLinkComp from "../../../components/LoginRegisterComps/RegisterLinkComp";
 
 // Modules
 import { useState } from "react";
@@ -25,7 +25,6 @@ function LoginPage() {
         <form onSubmit={(e) => userLogin(e, { userEmail, userPassword })}>
           <TextInputComp
             fieldName={"User Email"}
-            fieldValue=""
             inputValue={(userNameValue) => {
               setUserEmail(userNameValue);
             }}
@@ -33,7 +32,6 @@ function LoginPage() {
           <br />
           <TextInputComp
             fieldName={"Password"}
-            fieldValue=""
             inputValue={(userNameValue) => {
               setUserPassword(userNameValue);
             }}
@@ -44,7 +42,7 @@ function LoginPage() {
         </form>
       </div>
       <br />
-      <SignUpComp />
+      <RegisterLinkComp />
     </div>
   );
 }

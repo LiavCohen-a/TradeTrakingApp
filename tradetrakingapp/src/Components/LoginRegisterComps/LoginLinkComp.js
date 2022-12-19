@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function SignUpComp() {
   return (
     <div>
-      Not a member ? <Link to={"/SignUp"}>Sign Up now!</Link>
+     Have you registered before ? <Link to={"/"}>Login now!</Link>
     </div>
   );
 }
