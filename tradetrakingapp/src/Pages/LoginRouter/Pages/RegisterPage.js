@@ -2,6 +2,7 @@
 import ForgotPasswordComp from "../../../components/LoginRegisterComps/ForgotPasswordComp";
 import SubmitInputComp from "../../../components/SharedComponents/SubmitInputComp";
 import TextInputComp from "../../../components/SharedComponents/TextInputComp";
+import EmailInputComp from "../../../components/SharedComponents/EmailInputComp";
 import NumberInputComp from "../../../components/SharedComponents/NumberInputComp";
 import LoginLinkComp from "../../../components/LoginRegisterComps/LoginLinkComp";
 
@@ -50,7 +51,7 @@ function RegisterPage() {
               fieldName="Last Name"
               inputValue={(e) => setLast(e)}
             />
-            <TextInputComp fieldName="Email" inputValue={(e) => setEmail(e)} />
+            <EmailInputComp fieldName="Email" inputValue={(e) => setEmail(e)} />
           </div>
           <div className="InputContainer">
             <TextInputComp fieldName="Phone" inputValue={(e) => setPhone(e)} />

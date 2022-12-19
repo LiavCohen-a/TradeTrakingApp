@@ -2,6 +2,7 @@
 import ForgotPasswordComp from "../../../components/LoginRegisterComps/ForgotPasswordComp";
 import SubmitInputComp from "../../../components/SharedComponents/SubmitInputComp";
 import TextInputComp from "../../../components/SharedComponents/TextInputComp";
+import EmailInputComp from "../../../components/SharedComponents/EmailInputComp";
 import RegisterLinkComp from "../../../components/LoginRegisterComps/RegisterLinkComp";
 
 // Modules
@@ -23,7 +24,7 @@ function LoginPage() {
     <div className="LoginPage">
       <div className="LoginForm">
         <form onSubmit={(e) => userLogin(e, { userEmail, userPassword })}>
-          <TextInputComp
+          <EmailInputComp
             fieldName={"User Email"}
             inputValue={(userNameValue) => {
               setUserEmail(userNameValue);

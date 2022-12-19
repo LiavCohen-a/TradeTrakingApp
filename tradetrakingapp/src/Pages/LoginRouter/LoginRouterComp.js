@@ -1,5 +1,6 @@
 // Components
 import ForgotPasswordPage from "./Pages/ForgotPasswordPage";
+import ResetPasswordPage from "./Pages/ResetPasswordPage";
 import RegisterPage from "./Pages/RegisterPage";
 import LoginPage from "./Pages/LoginPage";
 
@@ -25,6 +26,7 @@ function LoginRouterComp() {
         <Route path="/" element={<LoginPage />} />
         <Route path="/Register" element={<RegisterPage />} />
         <Route path="/ForgotPassword" element={<ForgotPasswordPage />} />
+        <Route path="/ResetPassword" element={<ResetPasswordPage />} />
       </Routes>
     </div>
   );
