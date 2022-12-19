@@ -1,12 +1,16 @@
 import LoginRouterComp from './Pages/LoginRouter/LoginRouterComp';
-import FooterInfoComp from './Components/SharedComponents/FooterInfoComp';
-import './Css/Shared.css'
-
+import './Css/LoginRegister.css'
+import FooterInfoComp from './components/SharedComponents/FooterInfoComp'
 
 function App() {
   return (
-    <div className="RouterPagesContainer">
-        <LoginRouterComp />
+    <div >
+      <div className="RouterPagesContainer">
+       <LoginRouterComp />
+
+      </div>
+
+        <FooterInfoComp />
     </div>
   );
 }

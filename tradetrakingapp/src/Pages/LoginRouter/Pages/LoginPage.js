@@ -1,16 +1,51 @@
-import ForgotPasswordComp from "../../../Components/LoginRegisterComps/ForgotPasswordComp";
-import SignUpComp from "../../../Components/LoginRegisterComps/SignUpComp";
+// Components
+import ForgotPasswordComp from "../../../components/LoginRegisterComps/ForgotPasswordComp";
+import SubmitInputComp from "../../../components/SharedComponents/SubmitInputComp";
+import TextInputComp from "../../../components/SharedComponents/TextInputComp";
+import EmailInputComp from "../../../components/SharedComponents/EmailInputComp";
+import RegisterLinkComp from "../../../components/LoginRegisterComps/RegisterLinkComp";
+
+// Modules
+import { useState } from "react";
+
+// Css
+import "../../../Css/LoginRegister.css";
+import "../../../Css/Pages.css";
+
 function LoginPage() {
-    return (
-      <div className="App">
-        User Email : <br/>
-        Password : 
-        <ForgotPasswordComp />
-        <input type="submit" value={'Login'} /><br/>
-        <SignUpComp/>
+  const [userEmail, setUserEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+
+  const userLogin = (e, userData) => {
+    e.preventDefault();
+  };
+
+  return (
+    <div className="LoginPage">
+      <div className="LoginForm">
+        <form onSubmit={(e) => userLogin(e, { userEmail, userPassword })}>
+          <EmailInputComp
+            fieldName={"User Email"}
+            inputValue={(userNameValue) => {
+              setUserEmail(userNameValue);
+            }}
+          />
+          <br />
+          <TextInputComp
+            fieldName={"Password"}
+            inputValue={(userNameValue) => {
+              setUserPassword(userNameValue);
+            }}
+          />
+          <br />
+          <ForgotPasswordComp /> <br />
+          <SubmitInputComp value="Login" />
+        </form>
       </div>
-    );
-  }
-  
+      <br />
+      <RegisterLinkComp />
+    </div>
+  );
+}
+
 export default LoginPage;
-  
