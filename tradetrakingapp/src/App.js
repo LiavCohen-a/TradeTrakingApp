@@ -1,8 +1,12 @@
+import LoginRouterComp from './Pages/LoginRouter/LoginRouterComp';
+import FooterInfoComp from './Components/SharedComponents/FooterInfoComp';
+import './Css/Shared.css'
+
 
 function App() {
   return (
-    <div className="App">
-        Trading App
+    <div className="RouterPagesContainer">
+        <LoginRouterComp />
     </div>
   );
 }
