@@ -1,12 +1,11 @@
-
-import {Link} from 'react-router-dom';
+// Modules
+import { Link } from "react-router-dom";
 function SignUpComp() {
-    return (
-      <div>
-        Not a member ? <Link to={"/SignUp"}>Sign Up now!</Link>
-      </div>
-    );
-  }
-  
+  return (
+    <div>
+      Not a member ? <Link to={"/SignUp"}>Sign Up now!</Link>
+    </div>
+  );
+}
+
 export default SignUpComp;
-  
