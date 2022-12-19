@@ -82,7 +82,7 @@ router.route("/login").post(async function (req, resp) {
   }
 });
 
-router.route("/passwordReset").post(async function (req, resp) {
+router.route("/forgotPasswordReset").post(async function (req, resp) {
   let userResetPasswordData = req.body;
   let userEmail = userService.emailUserFix(userResetPasswordData);
   userResetPasswordData.email = userEmail;
@@ -108,11 +108,11 @@ router.route("/passwordReset").post(async function (req, resp) {
   }
 });
 
+
 router.route("/newpasswordsetup/:id").put(async function (req, resp) {
   let newPasswordData = req.body;
   let userID = req.params.id;
   let isValid = userService.isPasswordValid(newPasswordData.newPassword);
-  console.log(isValid)
   if (newPasswordData.newPassword === newPasswordData.passwordConfirm) {
     if (isValid.upperCase && isValid.passLength) {
       let response = await usersBL.UpdateUserPassword(
