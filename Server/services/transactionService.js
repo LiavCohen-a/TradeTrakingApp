@@ -27,5 +27,6 @@ exports.withdrawalCalculator = (
         status = false;
       }
       return { newStartPoint, newTotalMargin, status };
+
   }
 };
