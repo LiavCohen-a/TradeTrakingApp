@@ -1,7 +1,5 @@
-import TextInputComp from "../../../components/SharedComponents/TextInputComp";
-import EmailInputComp from "../../../components/SharedComponents/EmailInputComp";
-import SubmitInputComp from "../../../components/SharedComponents/SubmitInputComp";
-import LoginLinkComp from "../../../components/LoginRegisterComps/LoginLinkComp";
+import TextInputComp from "../../../Components/SharedComponents/TextInputComp";
+import SubmitInputComp from "../../../Components/SharedComponents/SubmitInputComp";
 import { useState } from "react";
 
 function ResetPasswordPage() {

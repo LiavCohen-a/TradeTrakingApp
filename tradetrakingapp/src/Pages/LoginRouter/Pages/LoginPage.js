@@ -1,9 +1,9 @@
 // Components
-import ForgotPasswordComp from "../../../components/LoginRegisterComps/ForgotPasswordComp";
-import SubmitInputComp from "../../../components/SharedComponents/SubmitInputComp";
-import TextInputComp from "../../../components/SharedComponents/TextInputComp";
-import EmailInputComp from "../../../components/SharedComponents/EmailInputComp";
-import RegisterLinkComp from "../../../components/LoginRegisterComps/RegisterLinkComp";
+import ForgotPasswordComp from "../../../Components/LoginRegisterComps/ForgotPasswordComp";
+import SubmitInputComp from "../../../Components/SharedComponents/SubmitInputComp";
+import TextInputComp from "../../../Components/SharedComponents/TextInputComp";
+import EmailInputComp from "../../../Components/SharedComponents/EmailInputComp";
+import RegisterLinkComp from "../../../Components/LoginRegisterComps/RegisterLinkComp";
 
 // Modules
 import { useState } from "react";

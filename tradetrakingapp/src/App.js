@@ -1,14 +1,22 @@
 import LoginRouterComp from './Pages/LoginRouter/LoginRouterComp';
+import HomeRouterComp from './Pages/HomeRouter/HomeRouterComp';
 import './Css/LoginRegister.css'
-import FooterInfoComp from './components/SharedComponents/FooterInfoComp'
+import FooterInfoComp from './Components/SharedComponents/FooterInfoComp'
+import { useState } from 'react';
 
 function App() {
+  const [userLogin,setUserLogin] = useState(true)
   return (
     <div >
-      <div className="RouterPagesContainer">
-       <LoginRouterComp />
-
-      </div>
+      {
+        userLogin ? 
+        <HomeRouterComp/>
+        :
+        <div className="RouterPagesContainer">
+         <LoginRouterComp />
+        </div>
+      }
+      
 
         <FooterInfoComp />
     </div>

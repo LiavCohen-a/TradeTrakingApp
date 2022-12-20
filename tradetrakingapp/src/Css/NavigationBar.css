@@ -1,0 +1,46 @@
+.NavBarContainer{
+    background-color: red;
+    text-align: center;
+    z-index: -10000;
+    width: 100%;
+    top: 0px;
+}
+
+.RouteContainer{
+    padding-top: 25px;
+}
+.HomeRouteContainer{
+    padding: 10px ;
+    justify-content: space-between ;
+}
+.NavLink{
+    margin: 20px;
+    justify-content: space-between; 
+}
+@media (max-width:900px) {
+    .NavBarContainer {
+      text-align: center;
+    }
+  
+    .RouterLinkContainer {
+      flex-direction: column;
+    }
+  
+    .RouterLinkContainer {
+      flex-direction: column;
+      
+    }
+  
+    .RouterLinkContainer {
+      margin: 15px 0;
+
+    }
+    .InfoItem{
+        padding: 10px;
+    }
+    .FooterInfoContainer{
+        margin: 5px;
+        justify-content: space-between; 
+        width: 93%;
+    }
+  }

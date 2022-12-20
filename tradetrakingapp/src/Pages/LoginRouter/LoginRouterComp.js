@@ -14,7 +14,7 @@ function LoginRouterComp() {
   return (
     <div className="LoginRouterComp">
       <h5 style={{ textAlign: "center" }}>Welcome To The Trade Tracking App</h5>
-      <div className="RouterLinkContainer">
+      <div className="RouterLinkContainer LoginRoute">
         <Link className="RouterInput Link" to={"/"}>
           Login
         </Link>
