@@ -6,6 +6,7 @@ import { Routes, Route, Link } from "react-router-dom";
 
 // Css
 import '../../../Css/NavigationBar.css';
+import '../../../Css/Mobile.css';
 
 function NavigationBarComp() {
   return (

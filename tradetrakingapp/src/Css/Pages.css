@@ -3,21 +3,33 @@
 }
 .FooterInfoContainer{
   display:flex;
-  position: fixed;
+  position: absolute;
   text-align: center;
   align-items: center;
   justify-content: center;
   bottom: 0;
   background-color: red;
-  width: 98%;
-
+  margin-top: 5px;
+  width: 98.7%;
 }
 .InfoItem{
   padding: 20px;
+}
+.Box{
+  background-color: red;
+  height: 125px;
+  width: 95%;
+  margin: 15px;
+}
+.DataContainer{
+  display: flex;
+  justify-content: space-around;
+  background-color: blue;
+  padding: 50px;  
+}
+.PageContainer{
   
 }
-.HomeContainer{
-  
-
-  
+.Text{
+  margin-top: 2%;
 }
