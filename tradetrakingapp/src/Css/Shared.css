@@ -19,7 +19,8 @@
 .DataContainer{
   display: flex;
   justify-content: space-around;
-  padding: 25px;  
+  padding: 25px; 
+  background-color: red;
 }
 .Text{
   margin-top: 2%;
