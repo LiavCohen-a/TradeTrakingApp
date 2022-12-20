@@ -1,5 +1,5 @@
 // Css
-import "../../Css/Inputs.css";
+import "../../Css/Shared.css";
 
 function SubmitInputComp(props) {
   return (

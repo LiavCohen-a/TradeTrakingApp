@@ -10,7 +10,7 @@ import { useState } from "react";
 
 // Css
 import "../../../Css/LoginRegister.css";
-import "../../../Css/Pages.css";
+import "../../../Css/Shared.css";
 
 function LoginPage() {
   const [userEmail, setUserEmail] = useState("");

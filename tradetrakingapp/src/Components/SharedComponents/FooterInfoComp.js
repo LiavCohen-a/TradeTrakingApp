@@ -1,5 +1,5 @@
 
-import "../../Css/Pages.css";
+import "../../Css/Shared.css";
 
 function FooterInfoComp() {
     return (
