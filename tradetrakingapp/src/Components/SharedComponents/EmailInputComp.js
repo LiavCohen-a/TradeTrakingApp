@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 // Css
-import "../../Css/Inputs.css";
+import "../../Css/Shared.css";
 
 function EmailInputComp(props) {
   const [fieldValue, setFieldValue] = useState("");

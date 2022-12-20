@@ -19,7 +19,7 @@ function HomeRouterComp() {
         </div>
         <div className='RouteContainer'>
         <Routes>
-            <Route path="/HomePage" element={<HomePage />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/Dashboard" element={<DashboardPage />} />
             <Route path="/Positions" element={<PositionsPage />} />
             <Route path="/Statistics" element={<StatisticsPage />} />

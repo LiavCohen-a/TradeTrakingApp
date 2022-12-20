@@ -1,0 +1,32 @@
+@media (max-width:900px) {
+    .NavBarContainer {
+      text-align: center;
+    }
+  
+    .RouterLinkContainer {
+      flex-direction: column;
+    }
+  
+    .RouterLinkContainer {
+      flex-direction: column;
+      
+    }
+  
+    .RouterLinkContainer {
+      margin: 15px 0;
+
+    }
+    .InfoItem{
+        padding: 10px;
+    }
+    .FooterInfoContainer{
+        position: relative;
+        justify-content: space-between;
+        width: 100%; 
+    }
+    .DataContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+  }

@@ -26,7 +26,7 @@ function RegisterPage() {
   };
   return (
     <div className="App">
-      <div className="FormContainer LoginForm">
+      <div className="LoginForm">
         <form
           onSubmit={(e) =>
             userRegister(e, {
