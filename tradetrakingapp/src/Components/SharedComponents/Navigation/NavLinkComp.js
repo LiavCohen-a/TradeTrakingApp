@@ -9,7 +9,7 @@ function NavLinkComp(props) {
   return (
     <div >
       <div>
-        <Link className={"Link NavLink "+props.className} to={props.linkRoute}>
+        <Link className={"Link  "+props.className} to={props.linkRoute}>
           {props.linkValue}
         </Link>
       </div>

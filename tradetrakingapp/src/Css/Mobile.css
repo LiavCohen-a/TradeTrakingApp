@@ -29,4 +29,9 @@
         flex-direction: column;
         align-items: center;
       }
+      .ResetPasswodContainer{
+        flex-direction: column;
+      }
+      
+     
   }
