@@ -17,8 +17,6 @@ function App() {
          <LoginRouterComp />
         </div>
       }
-
-
         <FooterInfoComp />
     </div>
   );
