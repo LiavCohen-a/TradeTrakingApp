@@ -19,8 +19,7 @@
 .DataContainer{
   display: flex;
   justify-content: space-around;
-  padding: 25px; 
-  background-color: red;
+  padding: 30px; 
 }
 .Text{
   margin-top: 2%;
@@ -44,11 +43,18 @@
 background-color: white;
 color: black;
 border: 2px solid grey;
-width: 25%;
 transition-duration: 0.4s;
-
+width: 150px;
 }
 .Submit:hover {
   background-color: grey; 
   color: white;
+}
+.Margin{
+  margin: 15px;
+}
+.Center{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }

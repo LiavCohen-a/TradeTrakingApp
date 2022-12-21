@@ -16,10 +16,10 @@ function NavigationBarComp() {
               logo
           </div>
           <div className="RouterLinkContainer" >
-          <NavLinkComp linkValue="Dashboard" linkRoute="/Dashboard" />
-          <NavLinkComp linkValue="Positions" linkRoute="/Positions" />
-          <NavLinkComp linkValue="Statistics" linkRoute="/Statistics" />
-          <NavLinkComp linkValue="Transactions" linkRoute="/Transactions" />
+          <NavLinkComp className="NavLink" linkValue="Dashboard" linkRoute="/Dashboard" />
+          <NavLinkComp className="NavLink" linkValue="Positions" linkRoute="/Positions" />
+          <NavLinkComp className="NavLink" linkValue="Statistics" linkRoute="/Statistics" />
+          <NavLinkComp className="NavLink" linkValue="Transactions" linkRoute="/Transactions" />
           </div>
           <div>
               welcome

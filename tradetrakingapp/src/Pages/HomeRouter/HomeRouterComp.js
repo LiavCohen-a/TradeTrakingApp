@@ -7,7 +7,9 @@ import TransactionsPage from './Pages/TransactionsPage';
 import HomePage from './Pages/HomePage';
 
 // Modules
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Outlet } from "react-router-dom";
+import ResetPasswordComp from './Pages/Dashboard/ResetPasswordComp';
+import UpdateUserComp from './Pages/Dashboard/UpdateUserComp';
 
 // Css
 
@@ -19,12 +21,23 @@ function HomeRouterComp() {
         </div>
         <div className='RouteContainer'>
         <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/Dashboard" element={<DashboardPage />} />
+            
+            <Route  path="/"  element={<HomePage />} />
+
+
+            <Route  path="/Dashboard"  element={<DashboardPage />} >
+                <Route path="updateUser" element={<UpdateUserComp />} />
+                    <Route path="resetPassword" element={<ResetPasswordComp />} />
+            </Route>
+
             <Route path="/Positions" element={<PositionsPage />} />
             <Route path="/Statistics" element={<StatisticsPage />} />
             <Route path="/Transactions" element={<TransactionsPage />} />
         </Routes>
+
+        </div>
+        <div>
+
         </div>
      
         

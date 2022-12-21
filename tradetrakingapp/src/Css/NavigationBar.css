@@ -13,3 +13,10 @@
     justify-content: space-between; 
 }
 
+.ResetPasswodContainer{
+    display: flex;
+    padding: 35px;
+    width: 50%;
+    text-align: center;
+    justify-content: center;
+}

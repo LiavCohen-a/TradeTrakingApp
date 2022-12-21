@@ -1,6 +1,7 @@
 .FlexColumn{
     flex-direction: column;
 }
-.Links{
- 
+.UserDataComp{
+    width: 180px;
+    margin: 15px;
 }
