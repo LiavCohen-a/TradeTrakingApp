@@ -21,6 +21,12 @@
   justify-content: space-around;
   padding: 30px; 
 }
+.FormDataContainer{
+  display: flex;
+  align-items: center;
+  padding: 30px; 
+  justify-content: center;
+}
 .Text{
   margin-top: 2%;
   

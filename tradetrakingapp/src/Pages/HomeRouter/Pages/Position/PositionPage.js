@@ -7,10 +7,8 @@ import TextInputComp from "../../../../Components/SharedComponents/TextInputComp
 function AddPositionComp() {
   return (
     <div className="PositionContainer Center Box">
-      <NavLinkComp
-        className="RouterInput"
-        linkRoute="/Positions"
-        linkValue="Return"
+      <ButtonInputComp
+        value="Return"
       />
       <div className="RouterLinkContainer">
         <div>

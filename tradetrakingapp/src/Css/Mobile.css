@@ -33,5 +33,7 @@
         flex-direction: column;
       }
       
-     
+     .TransactionContainer{
+        margin: 25px;
+     }
   }
