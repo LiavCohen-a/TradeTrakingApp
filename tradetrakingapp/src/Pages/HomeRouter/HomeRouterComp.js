@@ -12,6 +12,7 @@ import { Routes, Route, Link, Outlet } from "react-router-dom";
 import ResetPasswordComp from './Pages/Dashboard/ResetPasswordComp';
 import UpdateUserComp from './Pages/Dashboard/UpdateUserComp';
 import AddPositionComp from './Pages/Position/AddPositionComp';
+import TransactionComp from './Transaction/TransactionComp';
 
 // Css
 
@@ -33,12 +34,17 @@ function HomeRouterComp() {
             </Route>
 
             <Route path="/Positions" element={<PositionsPage />}>
-              <Route path="addPosition" element={<AddPositionComp />} />
+                <Route path="addPosition" element={<AddPositionComp />} />
             </Route>
             <Route path="/position/:id" element={<PositionPage />} />
 
             <Route path="/Statistics" element={<StatisticsPage />} />
-            <Route path="/Transactions" element={<TransactionsPage />} />
+
+            <Route path="/Transactions" element={<TransactionsPage />}>
+                <Route path='deposit' element={<TransactionComp transactionType="Deposit" />} />
+                <Route path='withdrawal' element={<TransactionComp transactionType="Withdrawal"/>} />
+                <Route path='transfer' element={<TransactionComp transactionType="Transfer"/>} />
+            </Route>
         </Routes>
 
         </div>

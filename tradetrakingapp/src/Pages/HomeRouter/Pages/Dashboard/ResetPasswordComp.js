@@ -11,7 +11,7 @@ import TextInputComp from "../../../../Components/SharedComponents/TextInputComp
 
 function ResetPasswordComp() {
   return (
-    <div className="DataContainer Margin">
+    <div className="FormDataContainer Margin">
         <div className="InputContainer">
             <ButtonInputComp value="Cancel" />
         </div>

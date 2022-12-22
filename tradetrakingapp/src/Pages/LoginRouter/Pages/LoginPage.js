@@ -11,30 +11,32 @@ import { useState } from "react";
 // Css
 import "../../../Css/LoginRegister.css";
 import "../../../Css/Shared.css";
+import userService from "../../../Services/userService";
 
 function LoginPage() {
-  const [userEmail, setUserEmail] = useState("");
-  const [userPassword, setUserPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const userLogin = (e, userData) => {
+  const userLogin =async (e, userData) => {
     e.preventDefault();
+    let isSuccsusfulyLogin = await userService.loginRequest(userData);
   };
 
   return (
     <div className="LoginPage">
       <div className="LoginForm">
-        <form onSubmit={(e) => userLogin(e, { userEmail, userPassword })}>
+        <form onSubmit={(e) => userLogin(e, { email, password })}>
           <EmailInputComp
             fieldName={"User Email"}
             inputValue={(userNameValue) => {
-              setUserEmail(userNameValue);
+              setEmail(userNameValue);
             }}
           />
           <br />
           <TextInputComp
             fieldName={"Password"}
             inputValue={(userNameValue) => {
-              setUserPassword(userNameValue);
+              setPassword(userNameValue);
             }}
           />
           <br />
