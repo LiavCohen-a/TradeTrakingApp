@@ -10,19 +10,21 @@ import { useState } from "react";
 
 // Css
 import "../../../Css/LoginRegister.css";
+import userService from "../../../Services/userService";
 
 function RegisterPage() {
-  const [first, setFirst] = useState("");
-  const [last, setLast] = useState("");
+  const [firstName, setFirst] = useState("");
+  const [lastName, setLast] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [startingPoint, setStartingPoint] = useState("");
-  const [securityQuestion, setSecurityQuestion] = useState("");
-  const [answerQuestion, setAnswer] = useState("");
+  const [accountStartingPoint, setStartingPoint] = useState("");
+  const [userQuestionID, setuserQuestion] = useState("");
+  const [userAnswer, setAnswer] = useState("");
   const [password, setPassword] = useState("");
 
-  const userRegister = (e, newUserData) => {
+  const userRegister =async (e, newUserData) => {
     e.preventDefault();
+    let resp = await userService.registrationRequest(newUserData)
   };
   return (
     <div className="App">
@@ -30,14 +32,16 @@ function RegisterPage() {
         <form
           onSubmit={(e) =>
             userRegister(e, {
-              first,
-              last,
+              firstName,
+              lastName,
               email,
               phone,
-              startingPoint,
-              securityQuestion,
-              answerQuestion,
+              accountStartingPoint,
               password,
+              userSecurityQuestion:{
+                userQuestionID,
+                userAnswer
+              }
             })
           }
         >
@@ -62,7 +66,7 @@ function RegisterPage() {
           <div className="InputContainer">
             <TextInputComp
               fieldName="Security Question"
-              inputValue={(e) => setSecurityQuestion(e)}
+              inputValue={(e) => setuserQuestion(e)}
             />
             <TextInputComp
               fieldName="Answer"

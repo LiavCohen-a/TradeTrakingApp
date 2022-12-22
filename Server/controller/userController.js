@@ -86,15 +86,11 @@ router.route("/forgotPasswordReset").post(async function (req, resp) {
   let userResetPasswordData = req.body;
   let userEmail = userService.emailUserFix(userResetPasswordData);
   userResetPasswordData.email = userEmail;
-
   let question = await securityQuestionBL.GetQuestionByID(
     userResetPasswordData.securityQuestionID
   );
-
   let user = await usersBL.GetUserByEmail(userEmail);
-
   if (question._id.toString() === user.userSecurityQuestion.userQuestionID) {
-    console.log(user.userSecurityQuestion.userQuestionID);
 
     if (
       userResetPasswordData.userAnswer === user.userSecurityQuestion.userAnswer
