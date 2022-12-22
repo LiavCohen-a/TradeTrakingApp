@@ -8,9 +8,7 @@ import ResetPasswordComp from './Dashboard/ResetPasswordComp';
 
 
 function DashboardPage() {
-  const obj = useParams();
   useEffect(() => {
-    console.log(obj.toString())
   },[])
   return (
     <div className="DataContainer FlexColumn">
