@@ -3,14 +3,12 @@
       text-align: center;
     }
   
-    .RouterLinkContainer {
+
+    .HoneLinkContainer {
       flex-direction: column;
     }
   
-    .RouterLinkContainer {
-      flex-direction: column;
-      
-    }
+
   
     .RouterLinkContainer {
       margin: 15px 0;
@@ -20,7 +18,7 @@
         padding: 10px;
     }
     .FooterInfoContainer{
-        position: relative;
+        position: absolute;
         justify-content: space-between;
         width: 100%; 
     }
@@ -35,5 +33,16 @@
       
      .TransactionContainer{
         margin: 25px;
+     }
+     .LoginLink{
+      display: flex;
+     }
+     .RouterPagesContainer{
+     }
+     .App{
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      
      }
   }

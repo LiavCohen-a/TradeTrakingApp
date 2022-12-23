@@ -15,7 +15,7 @@ function LoginRouterComp() {
   return (
     <div className="LoginRouterComp">
       <h5 >Welcome To The Trade Tracking App</h5>
-      <div className="RouterLinkContainer ">
+      <div className="RouterLinkContainer LoginLink">
       <NavLinkComp className="RouterInput" linkRoute="/" linkValue="Login" />
       <NavLinkComp className="RouterInput" linkRoute="/Register" linkValue="Register" />
       </div>
@@ -23,7 +23,7 @@ function LoginRouterComp() {
         <Route path="/" element={<LoginPage />} />
         <Route path="/Register" element={<RegisterPage />} />
         <Route path="/ForgotPassword" element={<ForgotPasswordPage />} />
-        <Route path="/ResetPassword" element={<ResetPasswordPage />} />
+        <Route path="/ResetPassword/:id" element={<ResetPasswordPage />} />
       </Routes>
 
     </div>

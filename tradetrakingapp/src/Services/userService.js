@@ -5,9 +5,6 @@ const url = "http://localhost:8000/api/users/"
 
 let loginRequest =async (userData) => {
    let resp = await axios.post(url+"login",userData);
-   if(resp.data.includes("successfully")){
-      console.log(resp.data)
-    }
    return (resp.data)
 }
 
@@ -21,5 +18,9 @@ let forgotPasswordRequest =async (userData) => {
    return (resp.data)
 }
 
+let resetPassword =async (userID,passwordData) => {
+   let resp = await axios.put(url+'newpasswordsetup/'+userID,passwordData);
+   return (resp.data)
+}
 
-export default {loginRequest,registrationRequest,forgotPasswordRequest};
+export default {loginRequest,registrationRequest,forgotPasswordRequest,resetPassword};

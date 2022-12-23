@@ -36,3 +36,17 @@ exports.emailUserFix = (UserData) => {
   let fixedMail = arrMail.map((x) => x.toLowerCase());
   return fixedMail.join("");
 };
+
+exports.fixUserPhone = (number) => {
+  let arrPhone = number.split("");
+  let index=0;
+  let fixedPhone = arrPhone.map((x) =>{
+    if(index == 0 && x == '0'){
+      index = index+1
+      return "+927"
+    } else{
+      return x
+    }
+  });
+  return fixedPhone.join("");
+};

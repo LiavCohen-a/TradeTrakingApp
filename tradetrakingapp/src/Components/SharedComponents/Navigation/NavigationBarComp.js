@@ -11,11 +11,11 @@ import '../../../Css/Mobile.css';
 function NavigationBarComp() {
   return (
     <div className="NavBarContainer">
-      <div className="RouterLinkContainer HomeRouteContainer">
+      <div className="HoneLinkContainer HomeRouteContainer">
         <div>
               logo
           </div>
-          <div className="RouterLinkContainer" >
+          <div className="HoneLinkContainer" >
           <NavLinkComp className="NavLink" linkValue="Dashboard" linkRoute="/Dashboard" />
           <NavLinkComp className="NavLink" linkValue="Positions" linkRoute="/Positions" />
           <NavLinkComp className="NavLink" linkValue="Statistics" linkRoute="/Statistics" />

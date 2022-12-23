@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import "../../Css/Shared.css";
 
 function NumberInputComp(props) {
-  const [fieldValue, setFieldValue] = useState();
+  const [fieldValue, setFieldValue] = useState('');
   useEffect(() => {
-    setFieldValue(props.fieldValue);
+ 
   }, []);
   return (
     <div className="InputContainer">

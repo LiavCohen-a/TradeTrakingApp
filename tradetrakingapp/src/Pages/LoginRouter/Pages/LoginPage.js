@@ -16,12 +16,17 @@ import userService from "../../../Services/userService";
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [responseTxt, setResponseTxt] = useState("");
 
   const userLogin =async (e, userData) => {
     e.preventDefault();
-    let isSuccsusfulyLogin = await userService.loginRequest(userData);
+    let isSuccessfullyLogin = await userService.loginRequest(userData);
+    if(isSuccessfullyLogin.includes("successfully")){
+      console.log(isSuccessfullyLogin)
+    }else{
+      setResponseTxt(isSuccessfullyLogin)
+    }
   };
-
   return (
     <div className="LoginPage">
       <div className="LoginForm">
@@ -43,6 +48,9 @@ function LoginPage() {
           <ForgotPasswordComp /> <br />
           <SubmitInputComp value="Login" />
         </form>
+      </div>
+      <div className="Margin">
+      {responseTxt}
       </div>
       <br />
       <RegisterLinkComp />

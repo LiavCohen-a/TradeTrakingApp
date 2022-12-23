@@ -7,7 +7,7 @@ import { useState } from 'react';
 function App() {
   const [userLogin,setUserLogin] = useState(false)
   return (
-    <div >
+    <div className='App'>
       {
         userLogin ? 
         <HomeRouterComp/>

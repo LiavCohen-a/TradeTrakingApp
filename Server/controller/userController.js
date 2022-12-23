@@ -18,13 +18,18 @@ router.route("/:id").get(async function (req, resp) {
 router.route("/").post(async function (req, resp) {
   let newUserData = req.body;
   let isValid = userService.isPasswordValid(newUserData.password);
-
+  let isUserEmailExist = await usersBL.GetUserByEmail(newUserData.email)
   if (isValid.upperCase && isValid.passLength) {
+    let userPhoneFix = userService.fixUserPhone(newUserData.phone)
     let userEmail = userService.emailUserFix(newUserData);
     newUserData.email = userEmail;
+    newUserData.phone = userPhoneFix;
     let data = await usersBL.AddUser(newUserData);
     return resp.json(data);
   } else {
+    if(isUserEmailExist){
+      return resp.json("User email registered !");
+    }
     if (isValid.passLength) {
       return resp.json("User mast have a capital letter in his password !");
     } else {
@@ -78,7 +83,7 @@ router.route("/login").post(async function (req, resp) {
       "Hey " + user.firstName + " You've logged in successfully!"
     );
   } else {
-    return resp.json("The username or password are invalid!");
+    return resp.json("The user email or password are invalid!");
   }
 });
 
@@ -90,6 +95,10 @@ router.route("/forgotPasswordReset").post(async function (req, resp) {
     userResetPasswordData.securityQuestionID
   );
   let user = await usersBL.GetUserByEmail(userEmail);
+  if(user === null)
+  {
+    return resp.json({ resp: "User email not exist", userData: user });
+  }
   if (question._id.toString() === user.userSecurityQuestion.userQuestionID) {
 
     if (

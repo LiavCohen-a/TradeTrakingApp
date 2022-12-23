@@ -93,7 +93,7 @@ exports.AddUser = function (newUserData) {
       password: newUserData.password,
       phone: newUserData.phone,
       accountStartingPoint: newUserData.accountStartingPoint,
-      accountCurrentMargin: newUserData.accountCurrentMargin,
+      accountCurrentMargin: newUserData.accountStartingPoint,
       createdAt: Date.now(),
       userSecurityQuestion: newUserData.userSecurityQuestion,
     });
@@ -101,7 +101,7 @@ exports.AddUser = function (newUserData) {
       if (err) {
         reject(err);
       } else {
-        resolve(newUserData);
+        resolve(newUser);
       }
     });
   });
@@ -118,3 +118,4 @@ exports.DeleteUser = function (UserID) {
     });
   });
 };
+
