@@ -35,6 +35,7 @@ function RegisterPage() {
       setResponseErr(resp)
     }else{
       /// pop up that congrats
+      alert('Welcome '+newUserData.firstName+' your user was successfully created !' )
       navigate('/')
     }
   };

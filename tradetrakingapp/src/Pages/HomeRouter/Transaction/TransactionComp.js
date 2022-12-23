@@ -19,7 +19,7 @@ function TransactionComp(props) {
             <div>
             <NumberInputComp fieldName={props.transactionType + " USD Amount"} />
             {
-                props.transactionType == "Transfer" ? <TextInputComp fieldName="Transfer To UserID" />
+                props.transactionType === "Transfer" ? <TextInputComp fieldName="Transfer To UserID" />
                 : null
             }
             <TextInputComp fieldName="New Total Margin" />

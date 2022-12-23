@@ -2,13 +2,19 @@
 import NavLinkComp from "./NavLinkComp";
 
 // Modules
-import { Routes, Route, Link } from "react-router-dom";
 
 // Css
 import '../../../Css/NavigationBar.css';
 import '../../../Css/Mobile.css';
+import ButtonInputComp from "../ButtonInputComp";
+import { useDispatch } from "react-redux";
 
 function NavigationBarComp() {
+  const dispatch = useDispatch();
+
+  const logOut = () => {
+    dispatch({type:"LOGOUT",payload : {}})
+  }
   return (
     <div className="NavBarContainer">
       <div className="HoneLinkContainer HomeRouteContainer">
@@ -23,6 +29,7 @@ function NavigationBarComp() {
           </div>
           <div>
               welcome
+              <ButtonInputComp value="Logout" callBack={(value)=>logOut} />
           </div>
       </div>
         learn more about : crypto/blockchain/andmore

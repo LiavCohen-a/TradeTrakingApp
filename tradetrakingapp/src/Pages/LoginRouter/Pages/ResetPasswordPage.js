@@ -16,8 +16,7 @@ function ResetPasswordPage() {
     e.preventDefault() 
     let resp = await userService.resetPassword(id,newPassword);
     if(resp.includes("Successfully")){
-      /// pop up that congrats
-      console.log(resp)
+      alert('Your password was successfully reset !')
       navigate('/')
     }else{
      setResponseErr(resp)

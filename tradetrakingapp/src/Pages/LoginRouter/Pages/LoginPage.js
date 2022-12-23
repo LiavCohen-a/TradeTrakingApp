@@ -7,7 +7,7 @@ import RegisterLinkComp from "../../../Components/LoginRegisterComps/RegisterLin
 
 // Modules
 import { useState } from "react";
-
+import {useDispatch} from 'react-redux';
 // Css
 import "../../../Css/LoginRegister.css";
 import "../../../Css/Shared.css";
@@ -18,11 +18,13 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [responseTxt, setResponseTxt] = useState("");
 
+  const dispatch = useDispatch();
+
   const userLogin =async (e, userData) => {
     e.preventDefault();
     let isSuccessfullyLogin = await userService.loginRequest(userData);
-    if(isSuccessfullyLogin.includes("successfully")){
-      console.log(isSuccessfullyLogin)
+    if(isSuccessfullyLogin.resp != undefined && isSuccessfullyLogin.resp.includes("successfully")  ){
+      dispatch({type : "LOGIN",payload : isSuccessfullyLogin.data})
     }else{
       setResponseTxt(isSuccessfullyLogin)
     }
