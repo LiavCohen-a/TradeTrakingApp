@@ -4,8 +4,8 @@ let userSchema = mongoose.Schema;
 let userSecurityQuestionSchema = mongoose.Schema;
 
 let userSecurityQuestionObj = new userSecurityQuestionSchema({
-  userQuestionID : String,
-  userAnswer : String
+  userQuestionID: String,
+  userAnswer: String,
 });
 
 let user = new userSchema({
@@ -17,7 +17,7 @@ let user = new userSchema({
   accountStartingPoint: Number,
   accountCurrentMargin: Number,
   createdAt: Date,
-  userSecurityQuestion : userSecurityQuestionObj
+  userSecurityQuestion: userSecurityQuestionObj,
 });
 
 module.exports = mongoose.model("users", user);

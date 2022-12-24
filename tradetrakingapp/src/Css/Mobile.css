@@ -1,48 +1,41 @@
-@media (max-width:900px) {
-    .NavBarContainer {
-      text-align: center;
-    }
-  
-
-    .HoneLinkContainer {
-      flex-direction: column;
-    }
-  
-
-  
-    .RouterLinkContainer {
-      margin: 15px 0;
-
-    }
-    .InfoItem{
-        padding: 10px;
-    }
-    .FooterInfoContainer{
-        position: absolute;
-        justify-content: space-between;
-        width: 100%; 
-    }
-    .DataContainer{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .ResetPasswodContainer{
-        flex-direction: column;
-      }
-      
-     .TransactionContainer{
-        margin: 25px;
-     }
-     .LoginLink{
-      display: flex;
-     }
-     .RouterPagesContainer{
-     }
-     .App{
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      
-     }
+@media (max-width: 900px) {
+  .NavBarContainer {
+    text-align: center;
   }
+
+  .HoneLinkContainer {
+    flex-direction: column;
+  }
+
+  .RouterLinkContainer {
+    margin: 15px 0;
+  }
+  .InfoItem {
+    padding: 10px;
+  }
+  .FooterInfoContainer {
+    width: 100%;
+  }
+  .DataContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .ResetPasswodContainer {
+    flex-direction: column;
+  }
+
+  .TransactionContainer {
+    margin: 25px;
+  }
+  .LoginLink {
+    display: flex;
+  }
+  .RouterPagesContainer {
+  }
+  .App {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}

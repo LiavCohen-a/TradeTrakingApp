@@ -41,24 +41,22 @@ router.route("/").post(async function (req, resp) {
     newTransactionData
   );
 
-
   if (userActionResult.status) {
-
-    if(newTransactionData.type =="Transfer"){
+    if (newTransactionData.type == "Transfer") {
       let revecieUser = await userBL.GetUserByID(newTransactionData.toUserID);
-      newTransactionData.type = "Deposit"
-          let userRevecieResult = transactionService.withdrawalCalculator(
-            revecieUser.accountStartingPoint,
-            revecieUser.accountCurrentMargin,
-            newTransactionData
-          );
-          if(userRevecieResult.status){
-            userRecevieStatus = await userBL.UpdateUserStartPointMargin(
-              newTransactionData.toUserID,
-              userRevecieResult.newStartPoint,
-              userRevecieResult.newTotalMargin
-            );
-          }
+      newTransactionData.type = "Deposit";
+      let userRevecieResult = transactionService.withdrawalCalculator(
+        revecieUser.accountStartingPoint,
+        revecieUser.accountCurrentMargin,
+        newTransactionData
+      );
+      if (userRevecieResult.status) {
+        userRecevieStatus = await userBL.UpdateUserStartPointMargin(
+          newTransactionData.toUserID,
+          userRevecieResult.newStartPoint,
+          userRevecieResult.newTotalMargin
+        );
+      }
     }
     let userTransactionStatus = await userBL.UpdateUserStartPointMargin(
       newTransactionData.userID,
@@ -67,7 +65,11 @@ router.route("/").post(async function (req, resp) {
     );
 
     let data = await transactionBL.AddTransaction(newTransactionData);
-    return resp.json({ data, userTransactionStatus,userRecevieStatus : userRecevieStatus });
+    return resp.json({
+      data,
+      userTransactionStatus,
+      userRecevieStatus: userRecevieStatus,
+    });
   } else {
     return resp.json("User cannot be in a debt situation !");
   }

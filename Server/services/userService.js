@@ -1,23 +1,26 @@
 exports.isPasswordValid = (password) => {
-  let passArr = password.split("");
+  if (password) {
+    let passArr = password.split("");
 
-  let upperCase = false;
-  let passLength = false;
+    let upperCase = false;
+    let passLength = false;
 
-  if (password.length >= 8) {
-    passLength = true;
-  }
-  passArr.forEach((letter) => {
-    if (letter.toUpperCase() === letter) {
-      if (letter <= 0 || letter > 0) {
-      } else {
-        upperCase = true;
-      }
-    } else {
+    if (password.length >= 8) {
+      passLength = true;
     }
-  });
+    passArr.forEach((letter) => {
+      if (letter.toUpperCase() === letter) {
+        if (letter <= 0 || letter > 0) {
+        } else {
+          upperCase = true;
+        }
+      } else {
+      }
+    });
 
-  return { upperCase: upperCase, passLength: passLength };
+    return { upperCase: upperCase, passLength: passLength };
+  }
+  return { upperCase: true, passLength: true };
 };
 
 exports.isUserExist = (user, userData) => {
@@ -39,13 +42,13 @@ exports.emailUserFix = (UserData) => {
 
 exports.fixUserPhone = (number) => {
   let arrPhone = number.split("");
-  let index=0;
-  let fixedPhone = arrPhone.map((x) =>{
-    if(index == 0 && x == '0'){
-      index = index+1
-      return "+927"
-    } else{
-      return x
+  let index = 0;
+  let fixedPhone = arrPhone.map((x) => {
+    if (index == 0 && x == "0") {
+      index = index + 1;
+      return "+927";
+    } else {
+      return x;
     }
   });
   return fixedPhone.join("");

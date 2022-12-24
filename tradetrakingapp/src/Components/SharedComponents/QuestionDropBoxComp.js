@@ -1,26 +1,36 @@
 // Modules
 import { useEffect, useState } from "react";
+import securityQuestionsService from "../../Services/securityQuestionsService";
 
 // Css
 import "../../Css/Shared.css";
-import securityQuestionsService from "../../Services/securityQuestionsService";
 
 function QuestionDropBoxComp(props) {
   const [questions, setQuestions] = useState([]);
   useEffect(() => {
-    getData()
+    getData();
   }, []);
-  let getData =async () => {
-    let resp  =await securityQuestionsService.getAllQuestions();
-    setQuestions(resp)
-  }
+  let getData = async () => {
+    let resp = await securityQuestionsService.getAllQuestions();
+    setQuestions(resp);
+  };
   return (
-        <select onChange={(e) => { props.inputValue(e.target.value)}} className="InputContainer SelectContainer " >
-          <option value={null}>Choose Question</option>
-          {questions.map(q =>{
-            return <option key={q._id} value={q._id}> {q.question}</option> 
-          })}
-        </select> 
+    <select
+      onChange={(e) => {
+        props.inputValue(e.target.value);
+      }}
+      className="InputContainer SelectContainer "
+    >
+      <option value={null}>Choose Question</option>
+      {questions.map((q) => {
+        return (
+          <option key={q._id} value={q._id}>
+            {" "}
+            {q.question}
+          </option>
+        );
+      })}
+    </select>
   );
 }
 

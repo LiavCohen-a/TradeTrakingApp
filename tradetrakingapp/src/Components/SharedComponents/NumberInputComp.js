@@ -5,15 +5,13 @@ import { useEffect, useState } from "react";
 import "../../Css/Shared.css";
 
 function NumberInputComp(props) {
-  const [fieldValue, setFieldValue] = useState('');
-  useEffect(() => {
- 
-  }, []);
+  const [fieldValue, setFieldValue] = useState("");
+  useEffect(() => {}, []);
   return (
     <div className="InputContainer">
       <input
         className="Input"
-        type={'number'}
+        type={"number"}
         placeholder={props.fieldName}
         value={fieldValue}
         onChange={(e) => {

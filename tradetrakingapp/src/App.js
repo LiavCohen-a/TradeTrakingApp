@@ -1,22 +1,26 @@
-import LoginRouterComp from './Pages/LoginRouter/LoginRouterComp';
-import HomeRouterComp from './Pages/HomeRouter/HomeRouterComp';
-import './Css/LoginRegister.css'
-import FooterInfoComp from './Components/SharedComponents/FooterInfoComp'
-import { useSelector } from 'react-redux';
+// Components
+import FooterInfoComp from "./Components/SharedComponents/FooterInfoComp";
+import LoginRouterComp from "./Pages/LoginRouter/LoginRouterComp";
+import HomeRouterComp from "./Pages/HomeRouter/HomeRouterComp";
+
+// Modules
+import { useSelector } from "react-redux";
+
+// Css
+import "./Css/LoginRegister.css";
 
 function App() {
-  const storageData = useSelector(state => state)
+  const storageData = useSelector((state) => state);
   return (
-    <div className='App'>
-      {
-        storageData.loginUser.isLogin ? 
-        <HomeRouterComp/>
-        :
+    <div className="App">
+      {storageData.loginUser.isLogin ? (
+        <HomeRouterComp />
+      ) : (
         <div className="RouterPagesContainer">
-         <LoginRouterComp />
+          <LoginRouterComp />
         </div>
-      }
-        <FooterInfoComp />
+      )}
+      <FooterInfoComp />
     </div>
   );
 }

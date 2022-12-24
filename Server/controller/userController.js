@@ -49,6 +49,8 @@ router.route("/:id").put(async function (req, resp) {
   let userEmail = userService.emailUserFix(newUserData);
   newUserData.email = userEmail;
   let isValid = userService.isPasswordValid(newUserData.password);
+  let userPhoneFix = userService.fixUserPhone(newUserData.phone);
+  newUserData.phone = userPhoneFix;
 
   if (isValid.upperCase && isValid.passLength) {
     let data = await usersBL.UpdateUser(userID, newUserData);
@@ -122,7 +124,7 @@ router.route("/newpasswordsetup/:id").put(async function (req, resp) {
         userID,
         newPasswordData.newPassword
       );
-      return resp.json(response);
+      return resp.json("Use password successfully updated");
     } else {
       if (isValid.passLength) {
         return resp.json("User mast have a capital letter in his password !");
