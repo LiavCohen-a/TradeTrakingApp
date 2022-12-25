@@ -12,7 +12,6 @@ function QuestionDropBoxComp(props) {
   }, []);
   const getData = async () => {
     let resp = await securityQuestionsService.getAllQuestions();
-    console.log(resp)
     setQuestions(resp);
   };
   return (
