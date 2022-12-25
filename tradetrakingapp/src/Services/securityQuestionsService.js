@@ -7,5 +7,8 @@ let getAllQuestions = async () => {
   let resp = await axios.get(url);
   return resp.data;
 };
-
-export default { getAllQuestions };
+let getQuestion = async (id) => {
+  let resp = await axios.get(url+id);
+  return resp.data;
+};
+export default { getAllQuestions,getQuestion };

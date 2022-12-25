@@ -10,7 +10,7 @@ function QuestionDropBoxComp(props) {
   useEffect(() => {
     getData();
   }, []);
-  let getData = async () => {
+  const getData = async () => {
     let resp = await securityQuestionsService.getAllQuestions();
     setQuestions(resp);
   };

@@ -36,7 +36,7 @@ function ResetPasswordComp() {
   return (
     <div>
       {repErr ? (
-        <div className="FormDataContainer">
+        <div className=" FormDataContainer">
           <RespPopUpComp value={repErr} />
         </div>
       ) : (
