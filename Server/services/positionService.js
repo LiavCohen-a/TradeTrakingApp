@@ -25,7 +25,7 @@ exports.LiquidityPrice = (leverage, entryPrice, type) => {
     return liquidityPrice;
   } else {
     let priceRange = entryPrice / leverage;
-    liquidityPrice = entryPrice + priceRange;
+    liquidityPrice = (entryPrice*1) + priceRange;
     return liquidityPrice;
   }
 };

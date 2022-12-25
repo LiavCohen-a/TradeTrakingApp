@@ -4,69 +4,71 @@ import positionService from "../../../Services/positionService";
 import transactionService from "../../../Services/transactionService";
 
 function HomePage() {
-  const storageData = useSelector(state => state)
-  const dispatch = useDispatch();
-  const [user,setUser] = useState({})
-  const [winingPositions,setWiningPositions] = useState(0)
+  const storageData = useSelector((state) => state);
+  const [user, setUser] = useState({});
+  const [winingPositions, setWiningPositions] = useState(0);
+  const [positionsLength, setPositionsLength] = useState(0);
+  const [transactionsLength, setTransactionsLength] = useState(0);
+  const [lastTransaction, setLastTransaction] = useState({});
 
-  useEffect(() =>{
-    setUser(storageData.loginUser.data)
-    getData()
-  },[])
-  const getData =async () => {
-    let resp = await positionService.getAllUserPositions(storageData.loginUser.data._id);
-    dispatch({type: "POSITIONS" ,payload : resp})
-    let resp2 = await transactionService.getAllUserTransactions(storageData.loginUser.data._id)
-    dispatch({type: "TRANSACTIONS" ,payload : resp2})
-
-    let result = storageData.positions.filter(x => {
-      if(x.positionClosed){
-        if(x.type ==="Long"){
-          if(x.entryPrice < x.closePrice){
+  useEffect(() => {
+    setUser(storageData.loginUser.data);
+    getData();
+  }, []);
+  const getData = async () => {
+    let positions = await positionService.getAllUserPositions(
+      storageData.loginUser.data._id
+    );
+    let resp = positions.filter(x => !x.positionClosed)
+    setPositionsLength(resp.length);
+    let transactions = await transactionService.getAllUserTransactions(
+      storageData.loginUser.data._id
+    );
+    setLastTransaction(transactions[0]);
+    setTransactionsLength(transactions.length);
+    let result = positions.filter((x) => {
+      if (x.positionClosed) {
+        if (x.type === "Long") {
+          if (x.entryPrice < x.closePrice) {
             return x;
           }
-        }else{
-          if(x.entryPrice > x.closePrice){
+        } else {
+          if (x.entryPrice > x.closePrice) {
             return x;
           }
         }
-        
       }
-    })
-    setWiningPositions(result.length)
-  }
+    });
+    setWiningPositions(result.length);
+  };
   return (
     <div className="PageContainer">
-        <div className="DataContainer">
-          <div className="Box">
-            <div>
-             <b>User Data</b><br/>
-              <div>ID: {user._id}</div>
-              <div>Current Margin : {user.accountCurrentMargin}$</div>
-              <div><br/>
-              <b>transactions</b><br/>
-              Amount : {storageData.transactions.length} <br/>
-              Last transaction :{storageData.transactions._id ? storageData.transactions._id : 'No transaction yet'}
-            </div>
-            </div>
-            </div>
-          <div className="Box">coin</div>
-          <div className="Box">
-      
-        
-            <div>
-              <b>Pnl/Statistics</b><br/>
-              <div>PNL From start point : {user.accountCurrentMargin / user.accountStartingPoint * 100}%</div>
-              Wining positions : {winingPositions}
-              <div>Open Positions : {storageData.positions.length}</div>
-              USD PNL : {user.accountStartingPoint - user.accountCurrentMargin}<br/>
-
-       
-            </div>
-          </div>
+      <div className="DataContainer">
+        <div className="Box">
+          <b>User Data</b>
+          <br />
+          <div>ID: {user._id}</div>
+          <div>Current Margin : {user.accountCurrentMargin}$</div>
+          <div>Email : {user.email}</div>
         </div>
-        <div className="DataContainer Text">what is cryptoa
+        <div className="Box">
+          <b>Transactions</b>
+          <br />
+          Amount : {transactionsLength} <br />
+          Last transaction :
+          {lastTransaction ? lastTransaction._id : "No transaction yet"}
         </div>
+        <div className="Box">
+            <b>Positions</b>
+            <br />
+            Wining positions : {winingPositions}
+            <div>Open Positions : {positionsLength}</div>
+            USD PNL : {user.accountStartingPoint - user.accountCurrentMargin}$
+            <br />
+        </div>
+      </div>
+      <div className="DataContainer Text">coins data</div>
+      <div className="DataContainer Text">what is cryptoa</div>
     </div>
   );
 }

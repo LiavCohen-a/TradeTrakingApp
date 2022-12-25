@@ -22,12 +22,15 @@ let resetPassword = async (userID, passwordData) => {
 };
 
 let updateUser = async (userID, userNewData) => {
-  console.log(userID);
-  console.log(userNewData);
-
   let resp = await axios.put(url + userID, userNewData);
   return resp.data;
 };
+
+let getUserData = async (userID,) => {
+   let resp = await axios.get(url + userID);
+   return resp.data;
+ };
+ 
 
 export default {
   updateUser,
@@ -35,4 +38,5 @@ export default {
   registrationRequest,
   forgotPasswordRequest,
   resetPassword,
+  getUserData
 };

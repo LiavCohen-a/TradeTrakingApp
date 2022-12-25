@@ -5,5 +5,12 @@ let getAllUserTransactions = async (userID) => {
   let resp = await axios.get(url + "user/" + userID);
   return resp.data;
 };
-
-export default { getAllUserTransactions };
+let getUserTransactionsByType = async (userAsk) => {
+   let resp = await axios.post(url + "type/",userAsk);
+   return resp.data;
+ };
+ let addNewTransaction = async (userAsk) => {
+   let resp = await axios.post(url,userAsk);
+   return resp.data;
+ };
+export default { getAllUserTransactions,getUserTransactionsByType ,addNewTransaction};

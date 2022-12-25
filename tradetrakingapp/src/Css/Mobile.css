@@ -8,6 +8,7 @@
   }
 
   .RouterLinkContainer {
+    flex-direction: column;
     margin: 15px 0;
   }
   .InfoItem {
@@ -40,5 +41,13 @@
   }
   .FormDataContainer{
     flex-direction: column;
+  }
+  .PositionContainer{
+    
+
+  }
+  .PositionDataContainer{
+    flex-direction: column;
+    width: 270px;
   }
 }

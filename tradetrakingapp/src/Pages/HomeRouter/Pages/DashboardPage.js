@@ -35,28 +35,28 @@ function DashboardPage() {
   return (
     <div className="DataContainer FlexColumn">
       <h5>
-        hey {user.firstName + " " + user.lastName}, Here is your details :
+        hey {storageData.loginUser.data.firstName + " " + storageData.loginUser.data.lastName}, Here is your details :
       </h5>
       <div className="DataContainer">
         <div className="UserDataComp">
-          Email : {user.email} <br />
+          Email : {storageData.loginUser.data.email} <br />
           Phone : {'+927-' +storageData.loginUser.data.phone.split("+927")[1]}
           <br />
           Created Date : {storageData.loginUser.data.createdAt.split('T')[0]}
           <br />
         </div>
         <div className="UserDataComp">
-          Start Margin : {user.accountStartingPoint}
+          Start Margin : {storageData.loginUser.data.accountStartingPoint}$
           <br />
-          Total Current Margin : {user.accountCurrentMargin}
+          Total Current Margin : {storageData.loginUser.data.accountCurrentMargin}$
           <br />
           Days From Start : {}
           <br />
         </div>
         <div className="UserDataComp">
-          PNL % : {(user.accountCurrentMargin /user.accountStartingPoint) * 100 -100 + "%"}
+          PNL % : {(storageData.loginUser.data.accountCurrentMargin /storageData.loginUser.data.accountStartingPoint) * 100 -100 + "%"}
           <br />
-          Total Profit/Loss (USD) : {pnl +" " +(user.accountStartingPoint - user.accountCurrentMargin) }$ <br />
+          Total Profit/Loss (USD) : {pnl +" " +(storageData.loginUser.data.accountStartingPoint - storageData.loginUser.data.accountCurrentMargin) }$ <br />
           Transactions : {storageData.transactions.length}
           <br />
         </div>
