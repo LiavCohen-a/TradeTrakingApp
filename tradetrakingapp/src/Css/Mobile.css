@@ -38,4 +38,7 @@
     align-items: center;
     text-align: center;
   }
+  .FormDataContainer{
+    flex-direction: column;
+  }
 }

@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux";
 function NavigationBarComp() {
   const dispatch = useDispatch();
 
-  const logOut = () => {
+  const logOut = () => { 
     dispatch({type:"LOGOUT",payload : {}})
   }
   return (
@@ -29,7 +29,7 @@ function NavigationBarComp() {
           </div>
           <div>
               welcome
-              <ButtonInputComp value="Logout" callBack={(value)=>logOut} />
+              <ButtonInputComp value="Logout" callBack={(value)=>logOut()} />
           </div>
       </div>
         learn more about : crypto/blockchain/andmore
