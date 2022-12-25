@@ -1,3 +1,8 @@
+// Components
+
+// Modules
+
+// Css
 
 function StatisticsPage() {
  

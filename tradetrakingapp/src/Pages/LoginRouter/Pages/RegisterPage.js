@@ -1,33 +1,45 @@
 // Components
-import SubmitInputComp from "../../../Components/SharedComponents/SubmitInputComp";
-import TextInputComp from "../../../Components/SharedComponents/TextInputComp";
-import EmailInputComp from "../../../Components/SharedComponents/EmailInputComp";
+import QuestionDropBoxComp from "../../../Components/SharedComponents/QuestionDropBoxComp";
 import NumberInputComp from "../../../Components/SharedComponents/NumberInputComp";
+import SubmitInputComp from "../../../Components/SharedComponents/SubmitInputComp";
+import EmailInputComp from "../../../Components/SharedComponents/EmailInputComp";
 import LoginLinkComp from "../../../Components/LoginRegisterComps/LoginLinkComp";
+import RespPopUpComp from "../../../Components/SharedComponents/RespPopUpComp";
+import TextInputComp from "../../../Components/SharedComponents/TextInputComp";
 
 // Modules
+import userService from "../../../Services/userService";
+import { useNavigate } from "react-router";
 import { useState } from "react";
 
 // Css
 import "../../../Css/LoginRegister.css";
-import userService from "../../../Services/userService";
 
 function RegisterPage() {
+  const navigate = useNavigate();
+
   const [firstName, setFirst] = useState("");
   const [lastName, setLast] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [accountStartingPoint, setStartingPoint] = useState("");
-  const [userQuestionID, setuserQuestion] = useState("");
+  const [accountStartingPoint, setStartingPoint] = useState(undefined);
+  const [userQuestionID, setUserQuestion] = useState("");
   const [userAnswer, setAnswer] = useState("");
   const [password, setPassword] = useState("");
+  const [repErr, setResponseErr] = useState("");
 
-  const userRegister =async (e, newUserData) => {
+  const userRegister = async (e, newUserData) => {
     e.preventDefault();
-    let resp = await userService.registrationRequest(newUserData)
+    let resp = await userService.registrationRequest(newUserData);
+    if (resp._id === undefined) {
+      setResponseErr(resp);
+    } else {
+      alert( "Welcome " + newUserData.firstName + " your user was successfully created !"  );
+      navigate("/");
+    }
   };
   return (
-    <div className="App">
+    <div className="">
       <div className="LoginForm">
         <form
           onSubmit={(e) =>
@@ -38,10 +50,10 @@ function RegisterPage() {
               phone,
               accountStartingPoint,
               password,
-              userSecurityQuestion:{
+              userSecurityQuestion: {
                 userQuestionID,
-                userAnswer
-              }
+                userAnswer,
+              },
             })
           }
         >
@@ -64,10 +76,7 @@ function RegisterPage() {
             />
           </div>
           <div className="InputContainer">
-            <TextInputComp
-              fieldName="Security Question"
-              inputValue={(e) => setuserQuestion(e)}
-            />
+            <QuestionDropBoxComp inputValue={(e) => setUserQuestion(e)} />
             <TextInputComp
               fieldName="Answer"
               inputValue={(e) => setAnswer(e)}
@@ -77,6 +86,7 @@ function RegisterPage() {
               inputValue={(e) => setPassword(e)}
             />
           </div>
+          <RespPopUpComp value={repErr} />
           <br />
           <SubmitInputComp value="Register" />
         </form>

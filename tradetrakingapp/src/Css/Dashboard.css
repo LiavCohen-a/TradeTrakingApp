@@ -1,7 +1,8 @@
-.FlexColumn{
-    flex-direction: column;
+.FlexColumn {
+  flex-direction: column;
 }
-.UserDataComp{
-    width: 180px;
-    margin: 15px;
+.UserDataComp {
+  background-color: red;
+  width: 270px;
+  margin: 15px;
 }

@@ -2,7 +2,7 @@ const positionModel = require("./positionModel");
 
 exports.GetAllUserPosition = function (userID) {
   return new Promise((resolve, reject) => {
-    positionModel.find({ userID : userID }, function (err, data) {
+    positionModel.find({ userID: userID }, function (err, data) {
       if (err) {
         reject(err);
       } else {

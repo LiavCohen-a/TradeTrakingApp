@@ -6,22 +6,33 @@ import EmailInputComp from "../../../Components/SharedComponents/EmailInputComp"
 import RegisterLinkComp from "../../../Components/LoginRegisterComps/RegisterLinkComp";
 
 // Modules
+import userService from "../../../Services/userService";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
 
 // Css
 import "../../../Css/LoginRegister.css";
 import "../../../Css/Shared.css";
-import userService from "../../../Services/userService";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [responseTxt, setResponseTxt] = useState("");
 
-  const userLogin =async (e, userData) => {
+  const dispatch = useDispatch();
+
+  const userLogin = async (e, userData) => {
     e.preventDefault();
-    let isSuccsusfulyLogin = await userService.loginRequest(userData);
+    let isSuccessfullyLogin = await userService.loginRequest(userData);
+    if (
+      isSuccessfullyLogin.resp != undefined &&
+      isSuccessfullyLogin.resp.includes("successfully")
+    ) {
+      dispatch({ type: "LOGIN", payload: isSuccessfullyLogin.data });
+    } else {
+      setResponseTxt(isSuccessfullyLogin);
+    }
   };
-
   return (
     <div className="LoginPage">
       <div className="LoginForm">
@@ -44,6 +55,7 @@ function LoginPage() {
           <SubmitInputComp value="Login" />
         </form>
       </div>
+      <div className="Margin">{responseTxt}</div>
       <br />
       <RegisterLinkComp />
     </div>
