@@ -1,77 +1,124 @@
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import ButtonInputComp from "../../../../Components/SharedComponents/ButtonInputComp";
 import NavLinkComp from "../../../../Components/SharedComponents/Navigation/NavLinkComp";
 import NumberInputComp from "../../../../Components/SharedComponents/NumberInputComp";
 import SubmitInputComp from "../../../../Components/SharedComponents/SubmitInputComp";
 import TextInputComp from "../../../../Components/SharedComponents/TextInputComp";
+import positionService from "../../../../Services/positionService";
 
-function AddPositionComp() {
+function PositionPage() {
+  const navigate = useNavigate();
+  const {id} = useParams();
+  const [position,setPosition] = useState({});
+  const [closePositionBool,setClosePositionBool] = useState(false);
+  const [closePrice,setClosePrice] = useState(0);
+  useEffect(() => {
+    getData()
+  },[])
+  const getData =async () =>{
+    let resp = await positionService.GetPositionByID(id);
+    setPosition(resp)
+  }
+
+  const userClosePosition =async (e) => {
+    e.preventDefault();
+    let resp = await positionService.closePosition(id,{closePrice });
+    if(resp.includes('Updated')){
+      alert('position closed successfully')
+      navigate('/positions')
+    }
+
+  }
   return (
-    <div className="PositionContainer Center Box">
+    <div className="Center Box">
       <ButtonInputComp
         value="Return"
+        callBack={()=>navigate('/positions')}
       />
+      <form onSubmit={(e) => userClosePosition(e)}>
       <div className="RouterLinkContainer">
         <div>
           <div>
-            headLine
-            <TextInputComp fieldName="Type" />
+          <b>Type</b>
+            <TextInputComp fieldName={position.type} />
           </div>
           <div>
-            headLine
-            <TextInputComp fieldName="Symbol" />
+          <b>Symbol</b>
+            <TextInputComp fieldName={position.symbol} />
           </div>
           <div>
-            headLine
-            <NumberInputComp fieldName="Margin" />
+          <b>Margin</b>
+            <NumberInputComp fieldName={position.margin} />
           </div>
         </div>
         <div>
           <div>
-            headLine
-            <NumberInputComp fieldName="Leverage" />
+          <b>Leverage</b>
+            <NumberInputComp fieldName={position.leverage} />
           </div>
           <div>
-            headLine
-            <NumberInputComp fieldName="Entry Price" />
+          <b>Entry Price</b>
+            <NumberInputComp fieldName={position.entryPrice}/>
           </div>
           <div>
-            headLine
-            <NumberInputComp fieldName="Liquidity Price" />
+          <b>Liquidity Price</b>
+            <NumberInputComp fieldName={position.liquidityPrice}/>
           </div>
         </div>
         <div></div>
         <div>
           <div>
-            headLine
-            <NumberInputComp fieldName="Stop Loss" />
+          <b>Stop Loss</b>
+            <NumberInputComp fieldName={position.stopLoss}/>
           </div>
           <div>
-            headLine
-            <NumberInputComp fieldName="Size (USD)" />
+          <b>Size (USD)</b>
+            <NumberInputComp fieldName={position.size} />
           </div>
           <div>
-            headLine
-            <NumberInputComp fieldName="Close Price" />
+          <b>Open Date</b>
+            <TextInputComp fieldName={position.positionOpenDate? position.positionOpenDate.split('T')[0] : '' }/>
           </div>
         </div>
+      {
+        position.positionClosed ? 
+        <div>
+        <div>
+          <b>Close Date</b>
+            <TextInputComp fieldName={position.positionClosedDate? position.positionClosedDate.split('T')[0] : ''}/>
+          </div>
+          <div>
+          <b>Total PNL(USD)</b>
+            <NumberInputComp fieldName={position.closePrice - position.entryPrice}/>
+        </div>
+        </div>
+        : 
+         ""
+      }
+      </div>
+      {position.positionClosed?'': closePositionBool ?  
         <div>
           <div>
-            headLine
-            <TextInputComp fieldName="Open Date" />
+          <b>Close Price</b>
+            <NumberInputComp inputValue={(e) => setClosePrice(e)} fieldName={position.closePrice}/>
           </div>
-          <div>
-            headLine
-            <TextInputComp fieldName="Close Date" />
-          </div>
-          <div>
-            headLine
-            <NumberInputComp fieldName="Total PNL(USD)" />
-          </div>
+          
         </div>
-      </div>
-      <SubmitInputComp  value="Open Position" />
+        :
+        closePositionBool ?  '':  <ButtonInputComp
+        value="Close Position"
+        callBack={()=>setClosePositionBool(!closePositionBool)}
+      />
+        }
+        <br/>
+        {
+          closePositionBool ? <SubmitInputComp  value="Close Position"  /> :'' 
+        }
+     
+     </form>
     </div>
   );
 }
 
-export default AddPositionComp;
+export default PositionPage;

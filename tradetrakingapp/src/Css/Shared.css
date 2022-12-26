@@ -16,6 +16,10 @@
   width: 95%;
   margin: 15px;
 }
+.DataBox {
+  width: 95%;
+  margin: 15px;
+}
 .DataContainer {
   display: flex;
   justify-content: space-around;

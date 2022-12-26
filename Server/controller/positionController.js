@@ -66,6 +66,16 @@ router.route("/:id").put(async (req, resp) => {
   return resp.json(dataResponse);
 });
 
+router.route("/close/:id").put(async (req, resp) => {
+    let updatedPositionData = req.body;
+    let positionID = req.params.id;
+    let dataResponse = await positionBL.ClosePosition(
+      positionID,
+      updatedPositionData
+    );
+    return resp.json(dataResponse);
+  });
+
 router.route("/:id").delete(async (req, resp) => {
   let positionID = req.params.id;
   let dataResponse = await positionBL.DeletePosition(positionID);

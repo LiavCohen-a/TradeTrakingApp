@@ -1,4 +1,4 @@
-exports.withdrawalCalculator = (
+exports.MarginCalculator = (
   accountStartingPoint,
   accountCurrentMargin,
   newTransactionData

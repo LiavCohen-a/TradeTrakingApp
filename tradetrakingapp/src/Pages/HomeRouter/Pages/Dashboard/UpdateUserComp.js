@@ -8,19 +8,21 @@ import TextInputComp from "../../../../Components/SharedComponents/TextInputComp
 import userService from "../../../../Services/userService";
 import { useNavigate, useParams } from "react-router";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 
 // Css
 
 function UpdateUserComp() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const {id} = useParams();
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [userSecurityQuestion, setUserSecurityQuestion] = useState("");
+  const [userQuestionID, setUserSecurityQuestion] = useState("");
   const [userAnswer, setUserAnswer] = useState("");
   
 
@@ -29,8 +31,9 @@ function UpdateUserComp() {
 
     let resp =await userService.updateUser(id,userNewData)
     alert(resp);
+    let resp2 = await userService.getUserData(id);
+    dispatch({type :'LOGIN',payload : resp2})
     navigate('/dashboard')
-    console.log(resp)
   };
   return (
     <div className="FlexColumn">
@@ -41,7 +44,7 @@ function UpdateUserComp() {
             lastName,
             email,
             phone,
-            userSecurityQuestion: { userSecurityQuestion, userAnswer },
+            userSecurityQuestion: { userQuestionID, userAnswer },
           })
         }
       >

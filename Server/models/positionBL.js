@@ -40,6 +40,26 @@ exports.UpdatePosition = function (positionID, positionNewData) {
   });
 };
 
+exports.ClosePosition = function (positionID, positionNewData) {
+  return new Promise((resolve, reject) => {
+    positionModel.findByIdAndUpdate(
+      positionID,
+      {
+        positionClosed : true,
+        closePrice : positionNewData.closePrice,
+        positionClosedDate : Date.now()
+      },
+      function (err, data) {
+        if (err) {
+          reject(err);
+        } else {
+          resolve("Position Was Updated");
+        }
+      }
+    );
+  });
+};
+
 exports.AddPosition = function (newPositionData) {
   return new Promise((resolve, reject) => {
     let newPosition = new positionModel({

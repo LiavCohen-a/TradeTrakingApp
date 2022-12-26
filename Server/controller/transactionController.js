@@ -34,8 +34,7 @@ router.route("/").post(async function (req, resp) {
   let newTransactionData = req.body;
   let userRecevieStatus;
   let actionUser = await userBL.GetUserByID(newTransactionData.userID);
-
-  let userActionResult = transactionService.withdrawalCalculator(
+  let userActionResult = transactionService.MarginCalculator(
     actionUser.accountStartingPoint,
     actionUser.accountCurrentMargin,
     newTransactionData
@@ -43,16 +42,17 @@ router.route("/").post(async function (req, resp) {
 
   if (userActionResult.status) {
     if (newTransactionData.type == "Transfer") {
-      let revecieUser = await userBL.GetUserByID(newTransactionData.toUserID);
+      let revecieUser = await userBL.GetUserByID(newTransactionData.transferUserID);
       newTransactionData.type = "Deposit";
-      let userRevecieResult = transactionService.withdrawalCalculator(
+      let userRevecieResult = transactionService.MarginCalculator(
         revecieUser.accountStartingPoint,
         revecieUser.accountCurrentMargin,
         newTransactionData
       );
       if (userRevecieResult.status) {
+        newTransactionData.type = "Transfer";
         userRecevieStatus = await userBL.UpdateUserStartPointMargin(
-          newTransactionData.toUserID,
+          newTransactionData.transferUserID,
           userRevecieResult.newStartPoint,
           userRevecieResult.newTotalMargin
         );

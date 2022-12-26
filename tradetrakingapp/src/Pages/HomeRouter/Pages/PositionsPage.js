@@ -6,15 +6,41 @@ import { Outlet } from "react-router-dom";
 
 // Css
 import "../../../Css/Position.css";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import positionService from "../../../Services/positionService";
+import PositionComp from "./Position/PositionComp";
 
 function PositionsPage() {
+  const storageData = useSelector((state) => state);
+  const [openPositions, setOpenPositions] = useState([]);
+  const [closePositions, setClosePositions] = useState([]);
+
+  useEffect(() => {
+    getData()
+  }, []);
+
+  const getData =async () => {
+    let userPositions = await positionService.getAllUserPositions(storageData.loginUser.data._id)
+    let closePositions = [];
+    let openPositions = userPositions.filter(x => {
+      if(x.positionClosed === false){
+        return x
+
+      }else{
+        closePositions.push(x)
+      }
+    })
+    setOpenPositions(openPositions)
+    setClosePositions(closePositions)
+  }
   return (
     <div>
       <div className="DataContainer">
         <NavLinkComp
           className="RouterInput"
           linkValue="Add Position"
-          linkRoute="AddPosition"
+          linkRoute={"AddPosition/"+storageData.loginUser.data._id}
         />
       </div>
       {/* 
@@ -22,16 +48,31 @@ function PositionsPage() {
 
 */}
       <Outlet />
-      <div className="Box Center">
-        open Positions
-        <div className="PositionContainer">position</div>
-        <div className="PositionContainer">position</div>
+      <div className="DataBox Center">
+       <b> open Positions</b><br/>
+        {
+          openPositions.length > 0 ?
+          openPositions.map(position => {
+            return <PositionComp key={position._id} position={position} />
+
+          }) :
+          'No open positions'
+        }      <br/>
+
       </div>
-      <div className="Box Center">
-        close Positions
-        <div className="PositionContainer">position</div>
-        <div className="PositionContainer">position</div>
-      </div>
+      <div className="DataBox Center">
+      <b>close Positions</b><br/>
+        {
+           closePositions.length > 0 ?
+          closePositions.map(position => {
+            return <PositionComp key={position._id} close={true} position={position} />
+
+          })
+          :
+          'No close positions'
+        }
+              <br/>
+      </div><br/>
     </div>
   );
 }

@@ -2,3 +2,13 @@
   flex-direction: column;
   width: 30%;
 }
+.Border{
+  border: solid grey 1px;
+  border-radius: 15px;
+  margin: 5px;
+  width: 90%;
+}
+.TransactionData{
+
+
+}
