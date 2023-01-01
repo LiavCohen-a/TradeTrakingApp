@@ -7,7 +7,7 @@ import SubmitInputComp from "../../../../Components/SharedComponents/SubmitInput
 import TextInputComp from "../../../../Components/SharedComponents/TextInputComp";
 import positionService from "../../../../Services/positionService";
 
-function AddPositionComp() {
+function AddPositionComp(props) {
   const {id} = useParams();
   const navigate = useNavigate();
 
@@ -25,6 +25,7 @@ function AddPositionComp() {
     if(resp.includes('Created')){
       alert(resp);
       navigate("/positions");
+      window.location.reload();
     }else{
       setResponseErr(resp)
     }

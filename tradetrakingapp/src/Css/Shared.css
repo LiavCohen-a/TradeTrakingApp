@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   bottom: 0;
-  margin-top: 5px;
+  margin-top: 15px;
   width: 98.7%;
 }
 .InfoItem {
@@ -25,6 +25,21 @@
   justify-content: space-around;
   padding: 30px;
 }
+.TextDataContainer{
+  justify-content: space-around;
+  padding: 30px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+}
+.PageContainer{
+  display: flex; 
+  flex-direction: column;
+
+  align-items: center;
+
+}
 .FormDataContainer {
   display: flex;
   align-items: center;
@@ -32,7 +47,8 @@
   justify-content: center;
 }
 .Text {
-  margin-top: 2%;
+  margin-top: 1%;
+  width: 50%;
 }
 .Input {
   border: 2px solid #707070;

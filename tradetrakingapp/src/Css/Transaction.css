@@ -1,14 +1,18 @@
 .TransactionContainer {
+  display: flex;
   flex-direction: column;
-  width: 30%;
+  align-items: center;
+  text-align: center;
 }
 .Border{
   border: solid grey 1px;
   border-radius: 15px;
   margin: 5px;
   width: 90%;
+  justify-content: center;
 }
 .TransactionData{
 
-
+}
+.TransactionPageContainer{
 }
