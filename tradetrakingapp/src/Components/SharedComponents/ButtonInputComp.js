@@ -1,16 +1,13 @@
 // Css
 import "../../Css/Shared.css";
+import Button from 'react-bootstrap/Button';
 
 function ButtonInputComp(props) {
   return (
     <div>
-      <input
-        onClick={() => props.callBack(props.value)}
-        className="Submit"
-        type={"button"}
-        value={props.value}
-      />
+         <Button onClick={() => props.callBack()} className="Submit" type={"button"} variant="secondary">{props.value}</Button>
     </div>
+
   );
 }
 

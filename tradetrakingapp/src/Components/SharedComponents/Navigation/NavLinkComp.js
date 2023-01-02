@@ -1,4 +1,5 @@
 // Components
+import Button from 'react-bootstrap/Button';
 
 // Modules
 import {Link } from "react-router-dom";
@@ -8,11 +9,11 @@ import {Link } from "react-router-dom";
 function NavLinkComp(props) {
   return (
     <div >
-      <div>
-        <Link className={"Link  "+props.className} to={props.linkRoute}>
-          {props.linkValue}
+    
+        <Link style={{textDecoration:'none'}} to={props.linkRoute}>
+          <Button   className={"Link  "+props.className} variant="outline-secondary">{props.linkValue}</Button>
         </Link>
-      </div>
+      
     </div>
   );
 }

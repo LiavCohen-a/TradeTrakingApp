@@ -17,7 +17,7 @@ function NavigationBarComp() {
     dispatch({type:"LOGOUT",payload : {}})
   }
   return (
-    <div className="NavBarContainer">
+    <div className="NavBarContainer App">
       <div className="HoneLinkContainer HomeRouteContainer">
         <div>
         <NavLinkComp className="NavLink" linkValue="logo" linkRoute="/" />

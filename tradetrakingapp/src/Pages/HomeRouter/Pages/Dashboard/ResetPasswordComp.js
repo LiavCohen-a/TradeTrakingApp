@@ -2,7 +2,7 @@
 import ButtonInputComp from "../../../../Components/SharedComponents/ButtonInputComp";
 import SubmitInputComp from "../../../../Components/SharedComponents/SubmitInputComp";
 import TextInputComp from "../../../../Components/SharedComponents/TextInputComp";
-import RespPopUpComp from "../../../../Components/SharedComponents/RespPopUpComp";
+import ErrorRespComp from "../../../../Components/SharedComponents/ErrorRespComp";
 
 // Modules
 import userService from "../../../../Services/userService";
@@ -37,7 +37,7 @@ function ResetPasswordComp() {
     <div>
       {repErr ? (
         <div className=" FormDataContainer">
-          <RespPopUpComp value={repErr} />
+          <ErrorRespComp value={repErr} />
         </div>
       ) : (
         ""

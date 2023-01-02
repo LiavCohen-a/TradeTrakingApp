@@ -14,7 +14,7 @@ import "../../Css/LoginRegister.css";
 function LoginRouterComp() {
   return (
     <div className="LoginRouterComp">
-      <h5>Welcome To The Trade Tracking App</h5>
+      <h5>Welcome To Trade Tracking App</h5>
       <div className="RouterLinkContainer LoginLink">
         <NavLinkComp className="RouterInput" linkRoute="/" linkValue="Login" />
         <NavLinkComp  className="RouterInput" linkRoute="/Register" linkValue="Register" />

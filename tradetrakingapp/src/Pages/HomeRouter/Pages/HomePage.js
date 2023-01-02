@@ -1,10 +1,8 @@
 function HomePage() { 
   return (
     <div className="PageContainer">
-      <div className="TextDataContainer">
-      </div>
       <div className="TextDataContainer Text">
-        <h4>What is Cryptocurrency?</h4>
+        <div className="Header"><h4><b>What is CryptoCurrency?</b></h4></div>
         <div>
         Cryptocurrency is a digital payment system that doesn't rely on banks to verify transactions.
         It’s a peer-to-peer system that can enable anyone anywhere to send and receive payments.
@@ -18,7 +16,9 @@ function HomePage() {
         </div>
         </div>
         <div className="TextDataContainer Text">
-        <h4>How does Cryptocurrency work?</h4>
+        <h4><b></b></h4>
+        <div className="Header"><h4><b>How does CryptoCurrency work?</b></h4></div>
+
         <div>
         Cryptocurrencies run on a distributed public ledger called blockchain, a record of all transactions updated and held by currency holders.<br/><br/>
         Units of cryptocurrency are created through a process called mining, which involves using computer power to solve complicated mathematical problems that generate coins. Users can also buy the currencies from brokers, then store and spend them using cryptographic wallets.<br/><br/>
@@ -26,13 +26,15 @@ function HomePage() {
         Although Bitcoin has been around since 2009, cryptocurrencies and applications of blockchain technology are still emerging in financial terms, and more uses are expected in the future. Transactions including bonds, stocks, and other financial assets could eventually be traded using the technology.           </div>
         </div>
         <div className="TextDataContainer Text">
-        <h4>What is a blockchain?</h4>
+        <div className="Header"><h4><b>What is a blockchain?</b></h4></div>
+
+        <h4><b></b></h4>
         <div>
         Blockchain is a distributed ledger (a list of transactions) that allows for information to be captured and shared in a network. In this network, each member maintains their own copy of the information and all members must validate and store each update collectively. By doing so, every member is always working with the same information which can provide online systems a single source of truth to work with. In a way blockchains are very similar to a Google sheet but slightly different as blockchains only allow data to be added and once added, it can never be removed.<br/><br/>
         Blockchain has three basic functionalities which can provide many different solutions for agri-food supply chains and smallholder farmers. Firstly, blockchain facilitates direct peer to peer transactions. Secondly, blockchain facilitates fully transparent and secure data storage. Lastly, blockchain allows for logic and agreements to be executed automatically. These three basic features can ultimately lead to more inclusion, more transparency and better cooperation within food supply chains.
-        <br/>  <br/>    <br/>
+     
         </div>
-        </div>
+        </div>   <br/><br/><br/>
     </div>
   );
 }

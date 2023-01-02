@@ -39,7 +39,7 @@ function DashboardPage() {
     <div className="DataContainer FlexColumn">
       <div className="DataContainer">
         <div className="UserDataComp">
-          Full Name : {user.firstName + " " + user.lastName} <br/>
+          Name : {user.firstName + " " + user.lastName} <br/>
           Email : {user.email} <br />
           Phone : {user.phone ? '+927-' +user.phone.split("+927")[1] : ''}
           <br />

@@ -1,5 +1,6 @@
 // Modules
 import { useEffect, useState } from "react";
+import Form from 'react-bootstrap/Form';
 
 // Css
 import "../../Css/Shared.css";
@@ -11,16 +12,12 @@ function EmailInputComp(props) {
   }, []);
   return (
     <div className="InputContainer">
-      <input
-        className="Input"
-        type={"email"}
-        placeholder={props.fieldName}
-        value={fieldValue ? fieldValue : ""}
-        onChange={(e) => {
+       <Form.Group controlId="formBasicEmail">
+        <Form.Control  className="InputContainer" placeholder={props.fieldName} value={fieldValue ? fieldValue : ""} type="email" onChange={(e) => {
           setFieldValue(e.target.value);
           props.inputValue(e.target.value);
-        }}
-      />
+        }} />
+        </Form.Group>
     </div>
   );
 }

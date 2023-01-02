@@ -2,13 +2,19 @@
   .NavBarContainer {
     text-align: center;
   }
-
+  .TextDataContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: RED;
+  }
   .HoneLinkContainer {
     flex-direction: column;
   }
 
   .RouterLinkContainer {
-    flex-direction: column;
     margin: 15px 0;
   }
   .InfoItem {
@@ -50,5 +56,8 @@
   .PositionDataContainer{
     flex-direction: column;
     width: 270px;
+  }
+  .LoginLink{
+    display: flex;
   }
 }

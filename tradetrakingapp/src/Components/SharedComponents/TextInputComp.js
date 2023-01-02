@@ -1,5 +1,6 @@
 // Modules
 import { useEffect, useState } from "react";
+import Form from 'react-bootstrap/Form';
 
 // Css
 import "../../Css/Shared.css";
@@ -11,16 +12,12 @@ function TextInputComp(props) {
   }, []);
   return (
     <div className="InputContainer">
-      <input
-        className="Input"
-        type={"text"}
-        placeholder={props.fieldName}
-        value={fieldValue ? fieldValue : ""}
-        onChange={(e) => {
+        <Form.Group>
+        <Form.Control  className="InputContainer" value={fieldValue ? fieldValue : ""} placeholder={props.fieldName} type={"text"}  onChange={(e) => {
           setFieldValue(e.target.value);
           props.inputValue(e.target.value);
-        }}
-      />
+        }} />
+        </Form.Group>
     </div>
   );
 }
