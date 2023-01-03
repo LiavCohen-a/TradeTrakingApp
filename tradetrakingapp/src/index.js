@@ -13,6 +13,7 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 
 // Css
+import './Css/Shared.css';
 
 const persistConfig = {
   key: "root",

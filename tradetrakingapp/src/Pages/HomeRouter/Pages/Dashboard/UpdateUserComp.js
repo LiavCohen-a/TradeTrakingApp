@@ -15,7 +15,6 @@ import { useDispatch } from "react-redux";
 
 function UpdateUserComp() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const {id} = useParams();
 
   const [firstName, setFirstName] = useState("");
@@ -28,12 +27,10 @@ function UpdateUserComp() {
 
   const updateUser =async (e,userNewData) => {
     e.preventDefault();
-
     let resp =await userService.updateUser(id,userNewData)
     alert(resp);
-    let resp2 = await userService.getUserData(id);
-    dispatch({type :'LOGIN',payload : resp2})
     navigate('/dashboard')
+    window.location.reload()
   };
   return (
     <div className="FlexColumn">

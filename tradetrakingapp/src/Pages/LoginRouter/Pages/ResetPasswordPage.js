@@ -1,12 +1,12 @@
 // Components
 import SubmitInputComp from "../../../Components/SharedComponents/SubmitInputComp";
-import RespPopUpComp from "../../../Components/SharedComponents/RespPopUpComp";
-import TextInputComp from "../../../Components/SharedComponents/TextInputComp";
+import ErrorRespComp from "../../../Components/SharedComponents/ErrorRespComp";
 
 // Modules
 import userService from "../../../Services/userService";
 import { useNavigate, useParams } from "react-router";
 import { useState } from "react";
+import PasswordInputComp from "../../../Components/SharedComponents/PasswordInputComp";
 
 // Css
 function ResetPasswordPage() {
@@ -31,15 +31,15 @@ function ResetPasswordPage() {
     <div className="LoginPage">
       <div className="LoginForm">
         <form onSubmit={(e) => resetPassword(e, { newPassword, passwordConfirm })} >
-          <TextInputComp fieldName="New Password" inputValue={(e) => setNewPassword(e)}/>
+          <PasswordInputComp fieldName="New Password" inputValue={(e) => setNewPassword(e)}/>
           <br />
-          <TextInputComp fieldName="Confirm Password" inputValue={(e) => setConfirmPassword(e)}/>
+          <PasswordInputComp fieldName="Confirm Password" inputValue={(e) => setConfirmPassword(e)}/>
           <br />
           <SubmitInputComp value="Reset Password" />
           <br />
         </form>
       </div>
-      <RespPopUpComp value={repErr}/> 
+      <ErrorRespComp value={repErr}/> 
     </div>
   );
 }

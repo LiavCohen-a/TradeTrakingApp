@@ -1,5 +1,6 @@
 // Modules
 import { useEffect, useState } from "react";
+import Form from 'react-bootstrap/Form';
 
 // Css
 import "../../Css/Shared.css";
@@ -9,16 +10,12 @@ function NumberInputComp(props) {
   useEffect(() => {}, []);
   return (
     <div className="InputContainer">
-      <input
-        className="Input"
-        type={"number"}
-        placeholder={props.fieldName}
-        value={fieldValue}
-        onChange={(e) => {
+        <Form.Group>
+        <Form.Control  className="InputContainer" value={fieldValue} placeholder={props.fieldName} type="number"  onChange={(e) => {
           setFieldValue(e.target.value);
           props.inputValue(e.target.value);
-        }}
-      />
+        }} />
+        </Form.Group>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import NumberInputComp from "../../../Components/SharedComponents/NumberInputCom
 import SubmitInputComp from "../../../Components/SharedComponents/SubmitInputComp";
 import EmailInputComp from "../../../Components/SharedComponents/EmailInputComp";
 import LoginLinkComp from "../../../Components/LoginRegisterComps/LoginLinkComp";
-import RespPopUpComp from "../../../Components/SharedComponents/RespPopUpComp";
+import ErrorRespComp from "../../../Components/SharedComponents/ErrorRespComp";
 import TextInputComp from "../../../Components/SharedComponents/TextInputComp";
 
 // Modules
@@ -14,6 +14,7 @@ import { useState } from "react";
 
 // Css
 import "../../../Css/LoginRegister.css";
+import PasswordInputComp from "../../../Components/SharedComponents/PasswordInputComp";
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -66,10 +67,10 @@ function RegisterPage() {
               fieldName="Last Name"
               inputValue={(e) => setLast(e)}
             />
-            <EmailInputComp fieldName="Email" inputValue={(e) => setEmail(e)} />
+            <TextInputComp fieldName="Phone" inputValue={(e) => setPhone(e)} />
           </div>
           <div className="InputContainer">
-            <TextInputComp fieldName="Phone" inputValue={(e) => setPhone(e)} />
+          <EmailInputComp fieldName="Email" inputValue={(e) => setEmail(e)} />
             <NumberInputComp
               fieldName="Starting Point (USD)"
               inputValue={(e) => setStartingPoint(e)}
@@ -81,16 +82,14 @@ function RegisterPage() {
               fieldName="Answer"
               inputValue={(e) => setAnswer(e)}
             />
-            <TextInputComp
-              fieldName="Password"
+            <PasswordInputComp
               inputValue={(e) => setPassword(e)}
             />
           </div>
-          <RespPopUpComp value={repErr} />
-          <br />
+          <ErrorRespComp value={repErr} />
           <SubmitInputComp value="Register" />
         </form>
-        <br />
+        <br/>
         <LoginLinkComp />
       </div>
     </div>

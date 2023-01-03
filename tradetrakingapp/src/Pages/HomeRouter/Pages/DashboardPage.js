@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import "../../../Css/Dashboard.css";
 import "../../../Css/Mobile.css";
 import securityQuestionsService from "../../../Services/securityQuestionsService";
+import userService from "../../../Services/userService";
 
 function DashboardPage() {
   const storageData = useSelector((state) => state);
@@ -23,6 +24,8 @@ function DashboardPage() {
   const getData =async () => {
     let question = await securityQuestionsService.getQuestion(storageData.loginUser.data.userSecurityQuestion.userQuestionID)
     setUserQuestion(question)
+    let user = await userService.getUserData(storageData.loginUser.data._id)
+    setUser(user)
   }
 
   let pnl;
@@ -34,36 +37,26 @@ function DashboardPage() {
 
   return (
     <div className="DataContainer FlexColumn">
-      <h5>
-        hey {storageData.loginUser.data.firstName + " " + storageData.loginUser.data.lastName}, Here is your details :
-      </h5>
       <div className="DataContainer">
         <div className="UserDataComp">
-          Email : {storageData.loginUser.data.email} <br />
-          Phone : {'+927-' +storageData.loginUser.data.phone.split("+927")[1]}
-          <br />
-          Created Date : {storageData.loginUser.data.createdAt.split('T')[0]}
-          <br />
-        </div>
-        <div className="UserDataComp">
-          Start Margin : {storageData.loginUser.data.accountStartingPoint}$
-          <br />
-          Total Current Margin : {storageData.loginUser.data.accountCurrentMargin}$
-          <br />
-          Days From Start : {}
+          Name : {user.firstName + " " + user.lastName} <br/>
+          Email : {user.email} <br />
+          Phone : {user.phone ? '+927-' +user.phone.split("+927")[1] : ''}
           <br />
         </div>
         <div className="UserDataComp">
-          PNL % : {(storageData.loginUser.data.accountCurrentMargin /storageData.loginUser.data.accountStartingPoint) * 100 -100 + "%"}
+          Start Margin : {user.accountStartingPoint}$
           <br />
-          Total Profit/Loss (USD) : {pnl +" " +(storageData.loginUser.data.accountStartingPoint - storageData.loginUser.data.accountCurrentMargin) }$ <br />
-          Transactions : {storageData.transactions.length}
+          Total Current Margin : {user.accountCurrentMargin}$
+          <br />
+          Created Date : {user.createdAt ? user.createdAt.split('T')[0] : ''}
           <br />
         </div>
+       
         <div className="UserDataComp">
           Security Question :{question.question}
           <br />
-          Answer : {storageData.loginUser.data.userSecurityQuestion.userAnswer}
+          Answer : {user.userSecurityQuestion ? user.userSecurityQuestion.userAnswer : ''}
           <br />
         </div>
       </div>
@@ -71,7 +64,7 @@ function DashboardPage() {
         <NavLinkComp
           className="RouterInput"
           linkValue="Update Details"
-          linkRoute={"UpdateUser/" + storageData.loginUser.data._id}
+          linkRoute={"UpdateUser/" + user._id}
         />
         <NavLinkComp
           className="RouterInput"

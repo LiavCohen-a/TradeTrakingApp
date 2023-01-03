@@ -4,7 +4,7 @@ import SubmitInputComp from "../../../Components/SharedComponents/SubmitInputCom
 import EmailInputComp from "../../../Components/SharedComponents/EmailInputComp";
 import LoginLinkComp from "../../../Components/LoginRegisterComps/LoginLinkComp";
 import TextInputComp from "../../../Components/SharedComponents/TextInputComp";
-import RespPopUpComp from "../../../Components/SharedComponents/RespPopUpComp";
+import ErrorRespComp from "../../../Components/SharedComponents/ErrorRespComp";
 
 // Modules
 import userService from "../../../Services/userService";
@@ -51,8 +51,7 @@ function ForgotPasswordPage() {
           <SubmitInputComp value="Validation" />
           <br />
         </form>
-        <RespPopUpComp value={repErr} />
-        <br />
+        <ErrorRespComp value={repErr} />
         <LoginLinkComp forgot={true} />
       </div>
     </div>

@@ -15,6 +15,7 @@ import transactionService from "../../../../Services/transactionService";
 function AddTransactionComp(props) {
     const storageData = useSelector((state) => state);
     const navigate = useNavigate();
+    const [responseTxt, setResponseTxt] = useState("");
 
     const [usdAmount, setUsdAmount] = useState(0);
     const [transferUserID, setTransferUserID] = useState("");
@@ -28,6 +29,13 @@ function AddTransactionComp(props) {
             transferUserID
         }
         let resp = await transactionService.addNewTransaction(userAsk);
+        if(resp.includes('debt')){
+          setResponseTxt(resp)
+        }else{
+          alert(resp)
+          window.location.reload();
+        }
+
       }
 
   return (
@@ -48,8 +56,12 @@ function AddTransactionComp(props) {
           </div>
         </div>
         <SubmitInputComp value="Submit Order" />
+        
       </div>
+      <div>      {responseTxt }
+</div>
       </form>
+      
     </div>
   );
 }

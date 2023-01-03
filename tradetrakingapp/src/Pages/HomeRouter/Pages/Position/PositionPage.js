@@ -18,6 +18,7 @@ function PositionPage() {
   },[])
   const getData =async () =>{
     let resp = await positionService.GetPositionByID(id);
+    console.log(resp)
     setPosition(resp)
   }
 

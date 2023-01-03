@@ -2,12 +2,12 @@ import { useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import ButtonInputComp from "../../../../Components/SharedComponents/ButtonInputComp";
 import NumberInputComp from "../../../../Components/SharedComponents/NumberInputComp";
-import RespPopUpComp from "../../../../Components/SharedComponents/RespPopUpComp";
+import ErrorRespComp from "../../../../Components/SharedComponents/ErrorRespComp";
 import SubmitInputComp from "../../../../Components/SharedComponents/SubmitInputComp";
 import TextInputComp from "../../../../Components/SharedComponents/TextInputComp";
 import positionService from "../../../../Services/positionService";
 
-function AddPositionComp() {
+function AddPositionComp(props) {
   const {id} = useParams();
   const navigate = useNavigate();
 
@@ -25,6 +25,7 @@ function AddPositionComp() {
     if(resp.includes('Created')){
       alert(resp);
       navigate("/positions");
+      window.location.reload();
     }else{
       setResponseErr(resp)
     }
@@ -59,7 +60,7 @@ function AddPositionComp() {
             </div>
             <SubmitInputComp value="Open Position" />
             </form>
-            <RespPopUpComp value={repErr} />
+            <ErrorRespComp value={repErr} />
       </div>
     );
   }

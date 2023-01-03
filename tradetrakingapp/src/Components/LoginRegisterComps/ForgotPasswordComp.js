@@ -6,7 +6,7 @@ import "../../Css/LoginRegister.css";
 function ForgotPasswordComp() {
   return (
     <div>
-      <Link className="Link" to={"/ForgotPassword"}>
+      <Link  to={"/ForgotPassword"}>
         Forgot password ?
       </Link>
     </div>

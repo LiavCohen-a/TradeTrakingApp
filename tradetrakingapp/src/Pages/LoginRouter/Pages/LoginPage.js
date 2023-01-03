@@ -4,6 +4,7 @@ import SubmitInputComp from "../../../Components/SharedComponents/SubmitInputCom
 import TextInputComp from "../../../Components/SharedComponents/TextInputComp";
 import EmailInputComp from "../../../Components/SharedComponents/EmailInputComp";
 import RegisterLinkComp from "../../../Components/LoginRegisterComps/RegisterLinkComp";
+import PasswordInputComp from "../../../Components/SharedComponents/PasswordInputComp";
 
 // Modules
 import userService from "../../../Services/userService";
@@ -44,10 +45,9 @@ function LoginPage() {
             }}
           />
           <br />
-          <TextInputComp
-            fieldName={"Password"}
-            inputValue={(userNameValue) => {
-              setPassword(userNameValue);
+          <PasswordInputComp
+            inputValue={(userPassValue) => {
+              setPassword(userPassValue);
             }}
           />
           <br />
@@ -56,7 +56,6 @@ function LoginPage() {
         </form>
       </div>
       <div className="Margin">{responseTxt}</div>
-      <br />
       <RegisterLinkComp />
     </div>
   );

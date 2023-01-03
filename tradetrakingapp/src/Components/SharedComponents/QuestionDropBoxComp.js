@@ -1,12 +1,16 @@
 // Modules
 import { useEffect, useState } from "react";
 import securityQuestionsService from "../../Services/securityQuestionsService";
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 // Css
 import "../../Css/Shared.css";
 
 function QuestionDropBoxComp(props) {
   const [questions, setQuestions] = useState([]);
+  const [userQ, setUserQ] = useState({});
   useEffect(() => {
     getData();
   }, []);
@@ -15,22 +19,18 @@ function QuestionDropBoxComp(props) {
     setQuestions(resp);
   };
   return (
-    <select
-      onChange={(e) => {
-        props.inputValue(e.target.value);
-      }}
-      className="InputContainer SelectContainer "
-    >
-      <option value={null}>Choose Question</option>
-      {questions.map((q) => {
+  <div className="InputContainer ">
+    <DropdownButton variant={'outline-secondary'} title={userQ.question ? userQ.question : 'Choose Question'}>
+    {questions.map((q) => {
         return (
-          <option key={q._id} value={q._id}>
-            {" "}
-            {q.question}
-          </option>
+          <Dropdown.Item  onClick={()=> {
+            props.inputValue(q._id)
+            setUserQ(q)}
+          } key={q._id} value={q._id} >{q.question}</Dropdown.Item>
         );
       })}
-    </select>
+   </DropdownButton>
+    </div>
   );
 }
 
