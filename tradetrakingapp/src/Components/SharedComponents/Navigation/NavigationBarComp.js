@@ -20,22 +20,21 @@ function NavigationBarComp() {
     <div className="NavBarContainer App">
       <div className="HoneLinkContainer HomeRouteContainer">
         <div>
-        <NavLinkComp className="NavLink" linkValue="logo" linkRoute="/" />
+        <NavLinkComp  linkValue="Home Page" linkRoute="/" />
               
           </div>
           <div>
             <div className="HoneLinkContainer" >
             <NavLinkComp className="NavLink" linkValue="Dashboard" linkRoute="/Dashboard" />
             <NavLinkComp className="NavLink" linkValue="Positions" linkRoute="/Positions" />
-            <NavLinkComp className="NavLink" linkValue="Statistics" linkRoute="/Statistics" />
             <NavLinkComp className="NavLink" linkValue="Transactions" linkRoute="/Transactions" />
+            <NavLinkComp className="NavLink" linkValue="Statistics" linkRoute="/Statistics" />
             </div>
             <br/>
             learn more about : crypto/blockchain/andmore
           </div>
 
           <div>
-              welcome {storageData.loginUser.data.firstName + " " + storageData.loginUser.data.lastName}
               <ButtonInputComp value="Logout" callBack={(value)=>logOut()} />
           </div>
       </div>
