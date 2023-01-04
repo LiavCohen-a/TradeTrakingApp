@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 function ButtonInputComp(props) {
   return (
     <div>
-         <Button onClick={() => props.callBack()} className="Submit" type={"button"} variant="secondary">{props.value}</Button>
+         <Button onClick={() => props.callBack()} className="Link Submit" type={"button"} variant="secondary">{props.value}</Button>
     </div>
 
   );

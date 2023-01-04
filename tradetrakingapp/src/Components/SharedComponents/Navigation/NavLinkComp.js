@@ -11,7 +11,7 @@ function NavLinkComp(props) {
     <div >
     
         <Link style={{textDecoration:'none'}} to={props.linkRoute}>
-          <Button   className={"Link  "+props.className} variant="outline-secondary">{props.linkValue}</Button>
+          <Button   className={"Link Submit  "+props.className} variant="outline-secondary">{props.linkValue}</Button>
         </Link>
       
     </div>
