@@ -18,65 +18,22 @@
   width: 95%;
   margin: 15px;
 }
-.DataBox {
-  width: 95%;
-  margin: 15px;
-}
-.DataContainer {
-  display: flex;
-  justify-content: space-around;
-  padding: 30px;
-}
-.TextDataContainer{
-  display: flex;
-  justify-content: space-around;
-  padding: 30px;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid black;
-  border-radius: 15px;
-  opacity: 1;
-}
-.Header{
-  width: 30%;
-  padding: 10%;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  color: grey;
-}
-.PageContainer{
-  display: flex; 
-  flex-direction: column;
 
-  align-items: center;
 
-}
 .FormDataContainer {
   display: flex;
   align-items: center;
   padding: 30px;
   justify-content: center;
 }
-.Text {
-  margin-top: 1%;
-  width: 70%;
-}
+
 .Input {
   border: 2px solid #b3b3b3;
   border-radius: 5px;
   opacity: 1;
   text-align: center;
 }
-.InputContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin: 3px;
-  margin-top: 0;
-}
+
 
 .Submit {
   border: 2px solid #b3b3b3;
@@ -88,17 +45,66 @@
   background-color: white;
   color: black;
 }
-.Margin {
-  margin: 15px;
+
+.SelectContainer {
+  border: 2px solid #b3b3b3;
+  border-radius: 5px;
+  opacity: 1;
+  text-align: center;
+}
+
+
+
+.App{
+  background: linear-gradient(to bottom, #b3b3b3 0%, #ffffff 100%);
+}
+.Border{
+  border: 2px solid #b3b3b3;
+  border-radius: 50px;
+  opacity: 1;
+}
+
+.InputBorder{
+  border: 2px solid #b3b3b3;
+  transition-duration: 0.4s;
+  width: 150px;
+  background-color: #b3b3b3 ;
+  border-radius: 20px;
+}
+.InputContainer {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 3px;  
+  margin-top: 0;
+}
+.Link {
+  color: black;
+  text-decoration: none;
+  border:solid #b3b3b3 1px;
+}
+.Link:hover {
+  color: white;
+  background-color: #b3b3b3 ;
+  border:solid #b3b3b3 1px;
+  text-decoration: none;
 }
 .Center {
   text-align: center;
   justify-content: center;
   align-items: center;
 }
-.SelectContainer {
-  border: 2px solid #b3b3b3;
-  border-radius: 5px;
-  opacity: 1;
+.Margin {
+  margin: 15px;
+}
+.FlexCenter{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+}
+.DataContainer {
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
 }

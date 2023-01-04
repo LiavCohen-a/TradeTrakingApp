@@ -1,11 +1,8 @@
 .PositionContainer {
   display: flex;
-  margin: 20px;
-  margin-top: 40px;
-  border : 1px solid #b3b3b3;
-    margin: 15px;
-    align-items: center;
-    justify-content: center;
+  width: 105%;
+  margin: 15px;
+  justify-content:space-around;
 }
 .PositionData{
     margin: 5px;
@@ -17,5 +14,14 @@
 }
 .PositionDataContainer{
     display: flex;
-    justify-content:space-between;
+    justify-content:space-around;
+    
 }
+.PositionsContainer{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 30px;
+    width: 95%;
+
+  }

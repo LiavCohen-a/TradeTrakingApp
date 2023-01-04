@@ -32,9 +32,9 @@ function ForgotPasswordPage() {
     }
   };
   return (
-    <div className="LoginPage">
-      <div className="LoginForm">
-        <form
+    <div>
+      <div  className="Center Margin">
+        <form 
           onSubmit={(e) =>
             forgotPassword(e, { email, securityQuestionID, userAnswer })
           }
@@ -43,16 +43,17 @@ function ForgotPasswordPage() {
             fieldName="User Email"
             inputValue={(e) => setEmail(e)}
           />
-          <br />
+       
           <QuestionDropBoxComp inputValue={(e) => setSecurityQuestionID(e)} />
-          <br />
+       
           <TextInputComp fieldName="Answer" inputValue={(e) => setAnswer(e)} />
           <br />
           <SubmitInputComp value="Validation" />
           <br />
         </form>
-        <ErrorRespComp value={repErr} />
+        <ErrorRespComp value={repErr} />   
         <LoginLinkComp forgot={true} />
+
       </div>
     </div>
   );

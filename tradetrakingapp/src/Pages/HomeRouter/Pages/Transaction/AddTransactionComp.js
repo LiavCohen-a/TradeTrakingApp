@@ -39,11 +39,12 @@ function AddTransactionComp(props) {
       }
 
   return (
-    <div className="DataContainer">
-        <form onSubmit={(e) => addTransaction(e)}>
-      <div className="RouterLinkContainer">
-        <ButtonInputComp callBack={()=>navigate('/transactions')} value="cancel" />
-        <div className="RouterLinkContainer">
+  
+        <form   className="FlexCenter " onSubmit={(e) => addTransaction(e)}>
+              <ButtonInputComp callBack={()=>navigate('/transactions')} value="cancel" />
+
+      <div >
+        <div className="DataContainer">
           <div>
             <NumberInputComp
               inputValue={(e) =>setUsdAmount(e) }
@@ -55,14 +56,15 @@ function AddTransactionComp(props) {
             <TextInputComp fieldValue={usdAmount} fieldName="New Total Margin" />
           </div>
         </div>
-        <SubmitInputComp value="Submit Order" />
         
       </div>
+      <SubmitInputComp value="Submit Order" />
+
       <div>      {responseTxt }
 </div>
       </form>
       
-    </div>
+
   );
 }
 

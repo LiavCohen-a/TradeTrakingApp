@@ -14,6 +14,7 @@ import { useState } from "react";
 // Css
 import "../../../Css/LoginRegister.css";
 import "../../../Css/Shared.css";
+import ErrorRespComp from "../../../Components/SharedComponents/ErrorRespComp";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -35,8 +36,8 @@ function LoginPage() {
     }
   };
   return (
-    <div className="LoginPage">
-      <div className="LoginForm">
+    <div>
+      <div className="Center Margin">
         <form onSubmit={(e) => userLogin(e, { email, password })}>
           <EmailInputComp
             fieldName={"User Email"}
@@ -50,12 +51,12 @@ function LoginPage() {
               setPassword(userPassValue);
             }}
           />
-          <br />
+        
           <ForgotPasswordComp /> <br />
           <SubmitInputComp value="Login" />
         </form>
       </div>
-      <div className="Margin">{responseTxt}</div>
+      <ErrorRespComp value={responseTxt} />
       <RegisterLinkComp />
     </div>
   );

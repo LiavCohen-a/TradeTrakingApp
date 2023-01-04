@@ -1,8 +1,9 @@
+import '../../../Css/HomePage.css';
 function HomePage() { 
   return (
-    <div className="PageContainer">
-      <div className="TextDataContainer Text">
-        <div className="Header"><h4><b>What is CryptoCurrency?</b></h4></div>
+    <div className="HomePageContainer">
+      <div className="Border TextDataContainer FlexCenter">
+        <div className="Header FlexCenter"><h4><b>What is CryptoCurrency?</b></h4></div>
         <div>
         Cryptocurrency is a digital payment system that doesn't rely on banks to verify transactions.
         It’s a peer-to-peer system that can enable anyone anywhere to send and receive payments.
@@ -15,9 +16,9 @@ function HomePage() {
         Much of the interest in cryptocurrencies is to trade for profit, with speculators at times driving prices skyward.
         </div>
         </div>
-        <div className="TextDataContainer Text">
+        <div className="Border TextDataContainer FlexCenter">
         <h4><b></b></h4>
-        <div className="Header"><h4><b>How does CryptoCurrency work?</b></h4></div>
+        <div className="Header FlexCenter"><h4><b>How does CryptoCurrency work?</b></h4></div>
 
         <div>
         Cryptocurrencies run on a distributed public ledger called blockchain, a record of all transactions updated and held by currency holders.<br/><br/>
@@ -25,8 +26,8 @@ function HomePage() {
         If you own cryptocurrency, you don’t own anything tangible. What you own is a key that allows you to move a record or a unit of measure from one person to another without a trusted third party.<br/><br/>
         Although Bitcoin has been around since 2009, cryptocurrencies and applications of blockchain technology are still emerging in financial terms, and more uses are expected in the future. Transactions including bonds, stocks, and other financial assets could eventually be traded using the technology.           </div>
         </div>
-        <div className="TextDataContainer Text">
-        <div className="Header"><h4><b>What is a blockchain?</b></h4></div>
+        <div className="Border TextDataContainer FlexCenter">
+        <div className="Header FlexCenter"><h4><b>What is a blockchain?</b></h4></div>
 
         <h4><b></b></h4>
         <div>
@@ -34,7 +35,7 @@ function HomePage() {
         Blockchain has three basic functionalities which can provide many different solutions for agri-food supply chains and smallholder farmers. Firstly, blockchain facilitates direct peer to peer transactions. Secondly, blockchain facilitates fully transparent and secure data storage. Lastly, blockchain allows for logic and agreements to be executed automatically. These three basic features can ultimately lead to more inclusion, more transparency and better cooperation within food supply chains.
      
         </div>
-        </div>   <br/><br/><br/>
+        </div>   <br/><br/><br/><br/>
     </div>
   );
 }

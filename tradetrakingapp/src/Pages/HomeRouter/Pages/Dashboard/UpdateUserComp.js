@@ -45,8 +45,8 @@ function UpdateUserComp() {
           })
         }
       >
-        <div className="DataContainer Center">
-          <div className="UserDataComp">
+        <div className="FlexCenter Center">
+          <div >
             <ButtonInputComp
               callBack={(e) => {
                 navigate("/dashboard");
@@ -55,7 +55,7 @@ function UpdateUserComp() {
             />
           </div>
 
-          <div className="UserDataComp">
+          <div >
             <TextInputComp
               inputValue={(e) => setFirstName(e)}
               fieldName="First Name"
@@ -66,7 +66,7 @@ function UpdateUserComp() {
             />
             <TextInputComp inputValue={(e) => setEmail(e)} fieldName="Email" />
           </div>
-          <div className="UserDataComp">
+          <div >
             <TextInputComp inputValue={(e) => setPhone(e)} fieldName="Phone" />
             <QuestionDropBoxComp
               inputValue={(e) => setUserSecurityQuestion(e)}
@@ -77,7 +77,7 @@ function UpdateUserComp() {
             />
           </div>
 
-          <div className="UserDataComp">
+          <div >
             <SubmitInputComp value="Update" />
           </div>
         </div>

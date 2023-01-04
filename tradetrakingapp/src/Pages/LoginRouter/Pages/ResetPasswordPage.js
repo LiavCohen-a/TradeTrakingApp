@@ -28,8 +28,8 @@ function ResetPasswordPage() {
     }
   };
   return (
-    <div className="LoginPage">
-      <div className="LoginForm">
+    <div className="Center">
+      <div>
         <form onSubmit={(e) => resetPassword(e, { newPassword, passwordConfirm })} >
           <PasswordInputComp fieldName="New Password" inputValue={(e) => setNewPassword(e)}/>
           <br />

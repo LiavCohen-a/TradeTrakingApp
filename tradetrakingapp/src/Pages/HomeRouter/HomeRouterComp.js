@@ -18,11 +18,11 @@ import AddTransactionComp from "./Pages/Transaction/AddTransactionComp";
 
 function HomeRouterComp() {
   return (
-    <div className="HomeContainer">
+    <div>
       <div>
         <NavigationBarComp />
       </div>
-      <div className="RouteContainer">
+      <div>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/Dashboard" element={<DashboardPage />}>
@@ -41,7 +41,6 @@ function HomeRouterComp() {
           </Route>
         </Routes>
       </div>
-      <div></div>
     </div>
   );
 }

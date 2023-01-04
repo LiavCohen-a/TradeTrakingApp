@@ -13,11 +13,11 @@ import "../../Css/LoginRegister.css";
 
 function LoginRouterComp() {
   return (
-    <div className="LoginRouterComp " >
+    <div>
       <h5>Welcome To Trade Tracking App</h5>
-      <div className="RouterLinkContainer LoginLink">
-        <NavLinkComp className="RouterInput" linkRoute="/" linkValue="Login" />
-        <NavLinkComp  className="RouterInput" linkRoute="/Register" linkValue="Register" />
+      <div className="FlexCenter ">
+        <NavLinkComp  linkRoute="/" linkValue="Login" />
+        <NavLinkComp  linkRoute="/Register" linkValue="Register" />
       </div>
       <Routes>
         <Route path="/" element={<LoginPage />} />

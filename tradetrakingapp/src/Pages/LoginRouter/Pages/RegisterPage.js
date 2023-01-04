@@ -41,7 +41,7 @@ function RegisterPage() {
   };
   return (
     <div className="">
-      <div className="LoginForm">
+      <div className="Center Margin">
         <form
           onSubmit={(e) =>
             userRegister(e, {
@@ -58,7 +58,7 @@ function RegisterPage() {
             })
           }
         >
-          <div className="InputContainer">
+          <div className="FlexCenter Margin">
             <TextInputComp
               fieldName="First Name"
               inputValue={(e) => setFirst(e)}
@@ -69,14 +69,14 @@ function RegisterPage() {
             />
             <TextInputComp fieldName="Phone" inputValue={(e) => setPhone(e)} />
           </div>
-          <div className="InputContainer">
+          <div className="FlexCenter Margin">
           <EmailInputComp fieldName="Email" inputValue={(e) => setEmail(e)} />
             <NumberInputComp
               fieldName="Starting Point (USD)"
               inputValue={(e) => setStartingPoint(e)}
             />
           </div>
-          <div className="InputContainer">
+          <div className="FlexCenter Margin">
             <QuestionDropBoxComp inputValue={(e) => setUserQuestion(e)} />
             <TextInputComp
               fieldName="Answer"
