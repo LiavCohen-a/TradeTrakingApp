@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 function RegisterLinkComp() {
   return (
-    <div>
+    <div className="Center">
       Not a member ? <Link to={"/Register"}>Register now!</Link>
     </div>
   );

@@ -1,0 +1,17 @@
+.HomePageContainer{
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+}
+.TextDataContainer{
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+    margin-top: 1%;
+    width: 70%;
+  }
+  .Header{
+    width: 30%;
+    padding: 10%;
+    color: grey;
+  }

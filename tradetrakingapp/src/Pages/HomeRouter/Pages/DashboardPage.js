@@ -36,45 +36,45 @@ function DashboardPage() {
   }
 
   return (
-    <div className="DataContainer FlexColumn">
-      <div className="DataContainer">
-        <div className="UserDataComp">
-          Name : {user.firstName + " " + user.lastName} <br/>
-          Email : {user.email} <br />
-          Phone : {user.phone ? '+927-' +user.phone.split("+927")[1] : ''}
-          <br />
-        </div>
-        <div className="UserDataComp">
-          Start Margin : {user.accountStartingPoint}$
-          <br />
-          Total Current Margin : {user.accountCurrentMargin}$
-          <br />
-          Created Date : {user.createdAt ? user.createdAt.split('T')[0] : ''}
-          <br />
-        </div>
-       
-        <div className="UserDataComp">
-          Security Question :{question.question}
-          <br />
-          Answer : {user.userSecurityQuestion ? user.userSecurityQuestion.userAnswer : ''}
-          <br />
-        </div>
-      </div>
-      <div className="DataContainer">
+    <div className="DataContainer FlexColumn ">
+         <div className="DataContainer">
         <NavLinkComp
-          className="RouterInput"
           linkValue="Update Details"
           linkRoute={"UpdateUser/" + user._id}
         />
         <NavLinkComp
-          className="RouterInput"
           linkValue="ResetPassword"
           linkRoute="ResetPassword"
         />
       </div>
-      <div className="Margin">
+      <div >
         <Outlet />
       </div>
+      <div className="DataContainer Border Margin Center">
+        <div className="UserDataComp Border" >
+          <b>Name</b> <br/>{user.firstName + " " + user.lastName} <br/>
+          <b>Phone</b>  <br/> {user.phone ? '+927-' +user.phone.split("+927")[1] : ''}<br />
+          <b>Email</b>  <br/> {user.email} 
+          <br />
+        </div>
+        <div className="UserDataComp Border">
+        <b>Start Margin</b>   <br/> {user.accountStartingPoint}$
+          <br />
+          <b>Total Current Margin</b> <br/>  {user.accountCurrentMargin}$
+          <br />
+          <b>Created Date</b>  <br/>  {user.createdAt ? user.createdAt.split('T')[0] : ''}
+          <br />
+        </div>
+       
+        <div className="UserDataComp Border">
+        <b>User PNL $</b>  <br/>{user.accountStartingPoint - user.accountCurrentMargin}
+          <br /><b>Security Question</b>  <br/>{question.question}
+          <br />
+          <b>Answer</b>   <br/>{user.userSecurityQuestion ? user.userSecurityQuestion.userAnswer : ''}
+          <br />
+        </div>
+      </div>
+   <br/><br/>
     </div>
   );
 }

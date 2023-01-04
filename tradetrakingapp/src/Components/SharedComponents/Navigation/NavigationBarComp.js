@@ -8,27 +8,29 @@ import '../../../Css/NavigationBar.css';
 import '../../../Css/Mobile.css';
 import ButtonInputComp from "../ButtonInputComp";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function NavigationBarComp() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const storageData = useSelector((state) => state);
 
   const logOut = () => { 
     dispatch({type:"LOGOUT",payload : {}})
+    navigate('/')
   }
   return (
-    <div className="NavBarContainer App">
-      <div className="HoneLinkContainer HomeRouteContainer">
+      <div className="FlexCenter NavBarContainer App">
         <div>
         <NavLinkComp  linkValue="Home Page" linkRoute="/" />
               
           </div>
           <div>
-            <div className="HoneLinkContainer" >
-            <NavLinkComp className="NavLink" linkValue="Dashboard" linkRoute="/Dashboard" />
-            <NavLinkComp className="NavLink" linkValue="Positions" linkRoute="/Positions" />
-            <NavLinkComp className="NavLink" linkValue="Transactions" linkRoute="/Transactions" />
-            <NavLinkComp className="NavLink" linkValue="Statistics" linkRoute="/Statistics" />
+            <div className="FlexCenter" >
+            <NavLinkComp linkValue="Dashboard" linkRoute="/Dashboard" />
+            <NavLinkComp linkValue="Positions" linkRoute="/Positions" />
+            <NavLinkComp linkValue="Transactions" linkRoute="/Transactions" />
+            <NavLinkComp linkValue="Statistics" linkRoute="/Statistics" />
             </div>
             <br/>
             learn more about : crypto/blockchain/andmore
@@ -38,7 +40,6 @@ function NavigationBarComp() {
               <ButtonInputComp value="Logout" callBack={(value)=>logOut()} />
           </div>
       </div>
-    </div>
   );
 }
 

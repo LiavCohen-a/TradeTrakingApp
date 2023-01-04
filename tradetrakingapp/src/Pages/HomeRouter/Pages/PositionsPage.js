@@ -35,20 +35,16 @@ function PositionsPage() {
     setClosePositions(closePositions)
   }
   return (
-    <div>
-      <div className="DataContainer">
+    <div  className=" ">
+      <div className="DataContainer ">
         <NavLinkComp
-          className="RouterInput"
           linkValue="Add Position"
           linkRoute={"AddPosition/"+storageData.loginUser.data._id}
         />
       </div>
-      {/* 
-  maploop
-
-*/}
       <Outlet />
-      <div className="DataBox Center">
+      <div className="FlexCenter">
+      <div className="Border Center PositionsContainer Margin">
        <b> open Positions</b><br/>
         {
           openPositions.length > 0 ?
@@ -60,7 +56,7 @@ function PositionsPage() {
         }      <br/>
 
       </div>
-      <div className="DataBox Center">
+      <div className=" Border Center PositionsContainer Margin">
       <b>close Positions</b><br/>
         {
            closePositions.length > 0 ?
@@ -72,7 +68,9 @@ function PositionsPage() {
           'No close positions'
         }
               <br/>
-      </div><br/>
+      </div>
+      </div>
+     <br/><br/><br/>
     </div>
   );
 }

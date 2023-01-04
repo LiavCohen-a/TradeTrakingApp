@@ -34,9 +34,9 @@ function ResetPasswordComp() {
   };
 
   return (
-    <div>
+    <div  className="FlexColumn">
       {repErr ? (
-        <div className=" FormDataContainer">
+        <div className="">
           <ErrorRespComp value={repErr} />
         </div>
       ) : (
@@ -44,17 +44,15 @@ function ResetPasswordComp() {
       )}
 
       <form
-        className="FormDataContainer Margin"
+        className="FlexCenter Center"
         onSubmit={(e) => setUpNewPassword(e, { newPassword, passwordConfirm })}
       >
-        <div className="InputContainer">
           <ButtonInputComp
             callBack={(e) => {
               navigate("/dashboard");
             }}
             value="Cancel"
           />
-        </div>
 
         <div className="Margin">
           <TextInputComp
@@ -66,9 +64,7 @@ function ResetPasswordComp() {
             inputValue={(e) => setConfirmPassword(e)}
           />
         </div>
-        <div className="InputContainer">
           <SubmitInputComp value="Update" />
-        </div>
       </form>
     </div>
   );

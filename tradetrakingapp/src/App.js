@@ -17,7 +17,7 @@ function App() {
         <HomeRouterComp />
       ) : (
         
-        <div className="RouterPagesContainer">
+        <div className="RouterPagesContainer Border">
           
           <LoginRouterComp />
         </div>

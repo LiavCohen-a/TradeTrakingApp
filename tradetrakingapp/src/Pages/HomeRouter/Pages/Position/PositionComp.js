@@ -13,28 +13,22 @@ function PositionComp(props) {
   return (
     <div
       onClick={() => navigate("/position/" + props.position._id)}
-      className="PositionContainer"
-    >
-      <div className="PositionDataContainer">
-        <div className="PositionData" style={{ color: typeColor }}>
+      className="PositionContainer Center Border" >  
+        <div  style={{ color: typeColor }}>
           {props.position.type == "Long" ? "L" : "S"}
         </div>
-        <div className="PositionData">X{props.position.leverage}</div>
-        <div className="PositionData">SL -- {props.position.stopLoss}$</div>
-      </div>
-      <div className="PositionDataContainer">
-        <div className="PositionData"><div>Symbol</div>{props.position.symbol}</div>
-        <div className="PositionData"><div>Margin</div>{props.position.margin}</div>
-        <div className="PositionData"><div>Size(USD)</div>{props.position.size}</div>
-      </div>
-      <div className="PositionDataContainer">
-        <div className="PositionData">
+        <div >X{props.position.leverage}</div>
+        <div >SL -- {props.position.stopLoss}$</div>
+        <div ><div>Symbol</div>{props.position.symbol}</div>
+        <div ><div>Margin</div>{props.position.margin}</div>
+        <div ><div>Size(USD)</div>{props.position.size}</div>
+        <div >
         <div>Entry Price</div>
 
         {props.position.entryPrice}
         </div>
         {props.position.positionClosed ? (
-          <div className="PositionData">
+          <div >
                       <div>Close Price</div>
 
             {props.position.closePrice}$
@@ -45,7 +39,7 @@ function PositionComp(props) {
 
             {
                 props.position.positionClosed ? 
-                <div className="PositionData">
+                <div >
                 <div>PNL(USD)</div>
                 {
                      props.position.type ==='Long' ?
@@ -55,7 +49,7 @@ function PositionComp(props) {
                 }
                 </div>
                 :
-                <div className="PositionData">
+                <div >
                     <div>Liquidity Price</div>
                     {props.position.liquidityPrice}
                 </div>
@@ -63,16 +57,16 @@ function PositionComp(props) {
         
         
         {props.position.positionClosed ? (
-          <div className="PositionData">
+          <div >
             <div>Close Date </div>
             {props.position.positionClosedDate.split("T")[0]}{" "}
           </div>
-        ) :<div className="PositionData">
+        ) :<div >
         <div>Open Date</div>
         {props.position.positionOpenDate.split("T")[0]}{" "}
       </div>}
       </div>
-    </div>
+   
   );
 }
 

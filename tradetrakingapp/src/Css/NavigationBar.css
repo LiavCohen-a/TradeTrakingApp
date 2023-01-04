@@ -3,20 +3,7 @@
   z-index: -10000;
   width: 100%;
   top: 0px;
-}
-.HomeRouteContainer {
   padding: 10px;
   justify-content: space-between;
 }
-.NavLink {
-  margin: 20px;
-  justify-content: space-between;
-}
 
-.ResetPasswodContainer {
-  display: flex;
-  padding: 35px;
-  width: 50%;
-  text-align: center;
-  justify-content: center;
-}

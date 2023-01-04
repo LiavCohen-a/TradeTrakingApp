@@ -6,7 +6,7 @@ import ErrorRespComp from "../../../../Components/SharedComponents/ErrorRespComp
 import SubmitInputComp from "../../../../Components/SharedComponents/SubmitInputComp";
 import TextInputComp from "../../../../Components/SharedComponents/TextInputComp";
 import positionService from "../../../../Services/positionService";
-
+import '../../../../Css/Shared.css';
 function AddPositionComp(props) {
   const {id} = useParams();
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ function AddPositionComp(props) {
  
     return (
       <div>
-          <form  className="RouterLinkContainer"
+          <form  className="FlexCenter  "
         onSubmit={(e) =>
           addPosition(e, {
             userID: id ,
@@ -47,7 +47,7 @@ function AddPositionComp(props) {
         }
       >
             <ButtonInputComp callBack={() => navigate('/positions')} value="cancel" />
-            <div className="RouterLinkContainer">
+            <div className="FlexCenter Margin">
                 <div>
             <TextInputComp inputValue={(e) => setSymbol(e)} fieldName="Symbol" />
             <NumberInputComp inputValue={(e) => setMargin(e)} fieldName="Margin" />

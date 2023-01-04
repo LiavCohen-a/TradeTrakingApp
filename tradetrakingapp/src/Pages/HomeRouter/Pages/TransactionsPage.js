@@ -29,46 +29,47 @@ function TransactionsPage() {
     setTransfer(transfer)
   }
   return (
-    <div className="TransactionPageContainer">
-      <div className="DataContainer">
+    <div className="">
+      <br/>
+      <Outlet />
+
+      <div className="DataContainer ">
+        <div className="TransactionContainer Border">
         <NavLinkComp
-          className="RouterInput"
+          className="Top"
           linkRoute="deposit"
           linkValue="Deposit"
         />
-        <NavLinkComp
+          { deposit.length >= 0?
+            deposit.map(x =>{
+              return <TransactionComp key={x._id} transaction={x}/>
+            }) : 
+            "No Withdrawal Transactions !"
+          }
+
+        </div>
+        <div className="TransactionContainer Border">       <NavLinkComp
           className="RouterInput"
           linkRoute="Withdrawal"
           linkValue="Withdrawal"
         />
+          {
+            withdrawal.length >= 0?
+            withdrawal.map(x =>{
+              return <TransactionComp key={x._id} transaction={x}/>
+            }):"No Withdrawal Transactions !"
+          }
+        </div>
+        <div className="TransactionContainer Border">
         <NavLinkComp
           className="RouterInput"
           linkRoute="Transfer"
           linkValue="Transfer"
         />
-      </div>
-      <Outlet />
-      <div className="DataContainer">
-        <div className="TransactionContainer">
-          {
-            deposit.map(x =>{
-              return <TransactionComp key={x._id} transaction={x}/>
-            })
-          }
-
-        </div>
-        <div className="TransactionContainer">
-          {
-            withdrawal.map(x =>{
-              return <TransactionComp key={x._id} transaction={x}/>
-            })
-          }
-        </div>
-        <div className="TransactionContainer">
-          {
+          { transfer.length >= 0?
             transfer.map(x =>{
               return <TransactionComp key={x._id} transaction={x}/>
-            })
+            }):"No Withdrawal Transactions !"
           }
         </div>
       </div>
